@@ -1,0 +1,35 @@
+/* styles.css - Personalizado para CV_2025 */
+.gradient-bg {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+}
+.card-hover {
+    transition: all 0.3s ease;
+}
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.skill-pill {
+    transition: all 0.2s ease;
+}
+.skill-pill:hover {
+    transform: scale(1.05);
+    background-color: #2563eb;
+    color: white;
+}
+.typewriter {
+    overflow: hidden;
+    border-right: .15em solid #3b82f6;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #3b82f6 }
+}
