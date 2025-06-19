@@ -1,46 +1,56 @@
-# CV de Carlos Barrios
+# 🌐 CV Profesional – Carlos Barrios
 
-Este proyecto es una página web profesional que presenta el currículum vitae de Carlos Barrios, Analista QA especializado en entornos bancarios, automatización, APIs y sistemas financieros.
+Repositorio del sitio web que presenta el currículum vitae de **Carlos Barrios**, Analista QA con experiencia en entornos bancarios, automatización de pruebas, APIs REST y sistemas financieros.
 
-## Estructura del proyecto
+---
 
-- `index.html` — Página principal del CV.
-- `profile.png` — Imagen de perfil (colocada en la raíz del proyecto).
-- `cv_Carlos_Barrios.pdf` — Archivo PDF descargable del CV.
-- `styles.css` — (Opcional) Estilos personalizados adicionales.
-- `/img/` — Carpeta para imágenes adicionales (si las hubiera).
+## 📁 Estructura del Proyecto
 
-## Características
+- `index.html` – Página principal del CV.  
+- `profile.png` – Imagen de perfil.  
+- `cv_Carlos_Barrios.pdf` – Versión descargable del CV en PDF.  
+- `styles.css` – Estilos personalizados (opcional).  
+- `/img/` – Imágenes adicionales (si aplica).  
 
-- **Diseño moderno y responsive** usando [Tailwind CSS](https://tailwindcss.com/).
-- **Botón de WhatsApp** para contacto directo.
-- **Descarga de CV en PDF** con un solo clic.
-- **Imagen de perfil personalizada**.
-- **Secciones claras**: Sobre mí, Experiencia, Herramientas y Tecnologías, Proyectos, Contacto.
-- **Animaciones y accesibilidad**.
-- **Optimización SEO** y metadatos para compartir en redes sociales.
+---
 
-## Personalización
+## ✨ Funcionalidades
 
-- **Cambiar número de WhatsApp:**  
-  Edita la variable `encodedNumber` en el `<script>` de `index.html` con tu número en formato internacional codificado en Base64.
+- Diseño **moderno y responsive** con [Tailwind CSS](https://tailwindcss.com/).  
+- Botón de **contacto directo por WhatsApp**.  
+- **Descarga inmediata** del CV en PDF.  
+- Imagen de perfil personalizada.  
+- Secciones bien definidas: Sobre mí, Experiencia, Tecnologías, Proyectos, Contacto.  
+- **Animaciones suaves** y foco en **accesibilidad**.  
+- Optimización **SEO y metadatos** para compartir en redes sociales.  
 
-- **Actualizar imagen de perfil:**  
-  Reemplaza el archivo `profile.png` en la raíz del proyecto.
+---
 
-- **Actualizar el PDF del CV:**  
-  Reemplaza el archivo `cv_Carlos_Barrios.pdf` en la raíz del proyecto.
+## ⚙️ Personalización Rápida
 
-- **Editar información personal:**  
-  Modifica los textos y enlaces en `index.html` según tus necesidades.
+- 📱 **Cambiar número de WhatsApp:**  
+  Modificá la variable `encodedNumber` en el `<script>` de `index.html` (en formato Base64).
 
-## Cómo ver el CV
+- 🖼️ **Actualizar imagen de perfil:**  
+  Reemplazá el archivo `profile.png`.
 
-1. Clona o descarga este repositorio.
-2. Abre `index.html` en tu navegador favorito.
+- 📄 **Actualizar el PDF del CV:**  
+  Sustituí el archivo `cv_Carlos_Barrios.pdf`.
 
-## Créditos
+- ✏️ **Editar información personal:**  
+  Modificá los textos y enlaces en `index.html`.
 
-Desarrollado por Carlos Barrios.  
-Contacto: [carlosbarriosr@proton.me](mailto:carlosbarriosr@proton.me)  
-[LinkedIn](https://www.linkedin.com/in/rodascaar/)
+---
+
+## 🚀 Visualización Rápida
+
+1. Cloná o descargá este repositorio.
+2. Abrí `index.html` en tu navegador favorito.
+
+---
+
+## 📬 Contacto
+
+**Carlos Barrios**  
+📧 [carlosbarriosr@proton.me](mailto:carlosbarriosr@proton.me)  
+🔗 [LinkedIn](https://www.linkedin.com/in/rodascaar/)
