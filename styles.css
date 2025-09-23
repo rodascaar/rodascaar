@@ -1,6 +1,25 @@
 /* styles.css - Personalizado para CV_2025 */
+:root {
+  --primary-blue: #0A66C2;
+  --secondary-orange: #F5993D;
+  --accent-teal: #0d9488;
+  --light-blue: #4A90E2;
+  --dark-blue: #005a9e;
+}
+
+.text-primary { color: var(--primary-blue); }
+.text-secondary { color: var(--secondary-orange); }
+.bg-primary { background-color: var(--primary-blue); }
+.hover-bg-secondary:hover { background-color: var(--secondary-orange); }
+.hover-bg-dark-blue:hover { background-color: var(--dark-blue); }
+.border-primary { border-color: var(--primary-blue); }
+.border-2-primary { border: 2px solid var(--primary-blue); }
+.hover-border-secondary:hover { border-color: var(--secondary-orange); }
+.border-left-primary { border-left: 4px solid var(--primary-blue); }
+.badge-secondary { background: var(--primary-blue); color: white; }
+.badge-small { background: var(--primary-blue); color: white; }
 .gradient-bg {
-    background: linear-gradient(135deg, #00695C 0%, #2E7D6A 100%);
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
 }
 .card-hover {
     transition: all 0.3s ease;
@@ -14,12 +33,12 @@
 }
 .skill-pill:hover {
     transform: scale(1.05);
-    background-color: #00695C;
+    background-color: var(--secondary-orange);
     color: white;
 }
 .typewriter {
     overflow: hidden;
-    border-right: .15em solid #00695C;
+    border-right: .15em solid var(--primary-blue);
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .02em;
@@ -31,5 +50,5 @@
 }
 @keyframes blink-caret {
     from, to { border-color: transparent }
-    50% { border-color: #00695C }
+    50% { border-color: var(--light-blue) }
 }
