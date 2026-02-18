@@ -72,8 +72,10 @@ El sitio incluye un **chatbot inteligente** integrado que responde preguntas sob
 | 🔒 **Seguridad Robusta** | Rate limiting, sanitización de entrada y validación de respuestas |
 | 📝 **Historial** | Mantiene contexto de la conversación |
 | ⚡ **Quick Replies** | Respuestas rápidas predefinidas según contexto |
-| 🌐 **Modo Híbrido** | Funciona con API o respuestas locales (fallback) |
+| 🌐 **Modo Híbrido** | Funciona con API o respuestas locales (fallback automático) |
 | 📱 **Responsive** | Diseño adaptado para todos los dispositivos |
+| 🎨 **UI Optimizada** | Ventana más ancha (480px) y menos alta (500px) para mejor UX |
+| ✅ **Botón Cerrar** | Siempre accesible con z-index elevado |
 
 ### Arquitectura de Seguridad
 
@@ -87,18 +89,38 @@ El chatbot implementa múltiples capas de seguridad:
 
 ### Configuración
 
-El chatbot se configura en [`chatbot.js`](chatbot.js:16):
+El chatbot se configura en [`chatbot.js`](chatbot.js:8):
 
 ```javascript
 const CHATBOT_CONFIG = {
+  // URL de tu backend API - Backend desplegado en CapRover
   apiEndpoint: 'https://carlos-bot-api.site.revelarte.studio/api/chat',
-  mode: 'api',  // 'api' o 'local'
-  rateLimit: {
-    maxRequests: 30,
-    periodMs: 60000
-  }
+  
+  // API key del cliente (configurada en el backend)
+  clientApiKey: '25d0a2a8bbe1a1a19873791305088f6a',
+  
+  // Configuración de la petición
+  apiConfig: {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  },
+  
+  // Timeout para la petición (ms)
+  timeout: 15000,
+  
+  // Modo de operación: 'api' (con backend) o 'local' (respuestas locales)
+  mode: 'auto'  // 'auto' intenta API, fallback a local si falla
 };
 ```
+
+### Mejoras Recientes
+
+- ✅ Corrección del error `CHBOT_CONFIG` → `CHATBOT_CONFIG`
+- ✅ Agregado de `z-index: 1003` al botón de cerrar para asegurar accesibilidad
+- ✅ Ajuste de dimensiones: más ancho (420px-480px) y menos alto (500px-55vh)
+- ✅ Mejora de UX en chats largos
 
 ### Documentación de Seguridad
 
