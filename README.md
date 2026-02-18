@@ -122,13 +122,6 @@ const CHATBOT_CONFIG = {
 - ✅ Ajuste de dimensiones: más ancho (420px-480px) y menos alto (500px-55vh)
 - ✅ Mejora de UX en chats largos
 
-### Documentación de Seguridad
-
-Para más información sobre la seguridad del chatbot, consulta:
-
-- 📖 [Guía de Seguridad del Chatbot](CHATBOT_SECURITY_GUIDE.md)
-- 📖 [Guía del Backend](CHATBOT_BACKEND_GUIDE.md)
-
 ---
 
 ## 📁 Estructura del Proyecto
@@ -137,34 +130,26 @@ Para más información sobre la seguridad del chatbot, consulta:
 rodascaar/
 │
 ├── index.html                    # Página principal del CV
-├── styles.css                    # Estilos personalizados
-├── chatbot.css                   # Estilos del chatbot
-├── chatbot.js                    # Lógica del chatbot (seguro)
-├── chatbot-secure.js             # Versión alternativa con proxy server
+├── styles.css                    # Estilos personalizados del sitio
+├── chatbot.css                   # Estilos específicos del chatbot
+├── chatbot.js                    # Lógica del chatbot con IA integrada
 ├── profile.webp                  # Imagen de perfil optimizada
 ├── cv_Carlos_Barrios.pdf         # CV en formato PDF
 ├── README.md                     # Documentación del proyecto
-├── CHATBOT_SECURITY_GUIDE.md     # Guía de seguridad del chatbot
-├── CHATBOT_BACKEND_GUIDE.md      # Guía del backend del chatbot
-├── .env.local.example            # Ejemplo de variables de entorno
-├── proxy-server.js               # Servidor proxy (opcional, para desarrollo)
-└── proxy-package.json             # Dependencias del proxy server
+└── .git/                         # Repositorio Git
 ```
 
 ### Descripción de Archivos
 
 | Archivo | Descripción |
 |:-------:|:-----------|
-| `index.html` | Estructura HTML semántica del sitio con CSP headers |
+| `index.html` | Estructura HTML semántica del sitio |
 | `styles.css` | Hoja de estilos con variables CSS personalizables |
-| `chatbot.css` | Estilos específicos del chatbot |
-| `chatbot.js` | Lógica del chatbot con seguridad integrada |
-| `chatbot-secure.js` | Versión alternativa con proxy server |
+| `chatbot.css` | Estilos específicos del chatbot (UI optimizada) |
+| `chatbot.js` | Lógica del chatbot con IA integrada y seguridad |
 | `profile.webp` | Imagen de perfil en formato WebP optimizado |
 | `cv_Carlos_Barrios.pdf` | Documento PDF del CV completo |
-| `CHATBOT_SECURITY_GUIDE.md` | Guía completa de seguridad del chatbot |
-| `CHATBOT_BACKEND_GUIDE.md` | Documentación del backend de CapRover |
-| `proxy-server.js` | Servidor proxy para desarrollo local (opcional) |
+| `README.md` | Documentación completa del proyecto |
 
 ---
 
@@ -287,13 +272,6 @@ Este proyecto implementa múltiples capas de seguridad para proteger contra vuln
 | 🛡️ **Input Sanitizer** | Detección de inyección de prompts |
 | 🔓 **Jailbreak Detector** | Previene ataques de jailbreaking |
 | 🔐 **System Prompt Protection** | Protege el prompt del sistema |
-
-### Documentación de Seguridad
-
-Para más detalles sobre la seguridad del chatbot:
-
-- 📖 [Guía de Seguridad del Chatbot](CHATBOT_SECURITY_GUIDE.md)
-- 📖 [Guía del Backend](CHATBOT_BACKEND_GUIDE.md)
 
 ### Buenas Prácticas
 
