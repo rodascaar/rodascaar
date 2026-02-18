@@ -11,275 +11,568 @@
     <meta property="og:description" content="Carlos Barrios: Analista QA especializado en automatización y APIs. Descarga mi CV y descubre cómo puedo ayudarte a garantizar la calidad de tus proyectos.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.linkedin.com/in/rodascaar/">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/your-github-id"> <!-- Cambia por tu imagen real si tienes -->
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/your-github-id">
     <link rel="canonical" href="https://www.linkedin.com/in/rodascaar/">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="font-sans bg-gray-50">
-    <!-- Botón flotante de WhatsApp -->
-    <div class="fixed bottom-6 right-6 z-50">
-    <a id="whatsappBtn" class="bg-primary hover-bg-dark-blue text-white p-4 rounded-full shadow-lg flex items-center justify-center w-14 h-14 transition-all duration-300 transform hover:scale-110" aria-label="WhatsApp">
-            <i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>
-        </a>
-    </div>
+<body>
+    <!-- Cursor Personalizado -->
+    <div class="custom-cursor" id="customCursor"></div>
+    
+    <!-- Canvas de Partículas -->
+    <canvas id="particles-canvas"></canvas>
 
-    <!-- Encabezado y navegación -->
-    <header class="gradient-bg text-white py-20 px-4">
-        <div class="container mx-auto max-w-6xl text-center">
-            <nav aria-label="Navegación principal" class="mb-8">
-                <ul class="flex flex-wrap justify-center gap-6 text-lg">
-                    <li><a href="#sobre-mi" class="hover:underline focus:outline-none focus:ring-2 focus:ring-white">Sobre mí</a></li>
-                    <li><a href="#experiencia" class="hover:underline focus:outline-none focus:ring-2 focus:ring-white">Experiencia</a></li>
-                    <li><a href="#herramientas" class="hover:underline focus:outline-none focus:ring-2 focus:ring-white">Herramientas</a></li>
-                    <li><a href="#proyectos" class="hover:underline focus:outline-none focus:ring-2 focus:ring-white">Proyectos</a></li>
-                    <li><a href="#proyectos-propios" class="hover:underline focus:outline-none focus:ring-2 focus:ring-white">Mis Proyectos</a></li>
-                </ul>
-            </nav>
-            <div class="flex justify-center mb-6">
-                <img src="profile.webp" alt="Carlos Barrios - Analista QA | Foto de perfil profesional" class="w-32 h-32 rounded-full bg-white object-cover shadow-xl border-4 border-primary">
+    <!-- Hero Section - QA Universe -->
+    <header class="hero-section">
+        <div class="hero-background"></div>
+        
+        <!-- Navegación -->
+        <nav class="hero-nav">
+            <ul>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <!-- Foto de perfil con elementos orbitantes -->
+            <div class="profile-container">
+                <div class="orbiting-element"><i class="fab fa-python"></i></div>
+                <div class="orbiting-element"><i class="fas fa-bug"></i></div>
+                <div class="orbiting-element"><i class="fas fa-robot"></i></div>
+                <div class="orbiting-element"><i class="fas fa-code"></i></div>
+                <img src="profile.webp" alt="Carlos Barrios - Analista QA" class="profile-image">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Carlos Barrios - Analista QA</h1>
-            <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="mailto:carlosbarriosr@proton.me" class="bg-white text-primary hover:bg-gray-200 px-6 py-3 rounded-full font-medium flex items-center gap-2 transition-all" aria-label="Enviar correo">
-                    <i class="fas fa-envelope" aria-hidden="true"></i> Contacto
+
+            <!-- Nombre con efecto glitch -->
+            <h1 class="glitch-text" data-text="CARLOS BARRIOS">CARLOS BARRIOS</h1>
+            
+            <p class="hero-subtitle">Analista QA | Especialista en Automatización & Testing de APIs</p>
+
+            <!-- Botones -->
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-glow btn-primary">
+                    <i class="fas fa-envelope"></i> Contactar
                 </a>
-                <a href="https://www.linkedin.com/in/rodascaar/" target="_blank" rel="noopener" class="bg-white text-primary border-2 border-white hover:bg-primary hover:text-white hover:border-primary px-6 py-3 rounded-full font-medium flex items-center gap-2 transition-all" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/rodascaar/" target="_blank" rel="noopener" class="btn-glow btn-secondary">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
                 </a>
-                <a href="https://github.com/rodascaar" target="_blank" rel="noopener" class="bg-gray-800 hover:bg-black text-white px-6 py-3 rounded-full font-medium flex items-center gap-2 transition-all" aria-label="GitHub">
-                    <i class="fab fa-github" aria-hidden="true"></i> GitHub
-                </a>
-                <a href="cv_Carlos_Barrios.pdf" download class="bg-primary hover-bg-dark-blue text-white px-6 py-3 rounded-full font-medium flex items-center gap-2 transition-all" aria-label="Descargar CV">
-                    <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Descargar CV
+                <a href="https://github.com/rodascaar" target="_blank" rel="noopener" class="btn-glow btn-secondary">
+                    <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
         </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <a href="#philosophy">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
     </header>
 
-    <main class="container mx-auto max-w-6xl px-4 py-12">
-        <!-- Sobre mí -->
-        <section id="sobre-mi" class="mb-16" aria-labelledby="titulo-sobre-mi">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                <div class="p-8">
-                    <h2 id="titulo-sobre-mi" class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                        <i class="fas fa-user text-primary" aria-hidden="true"></i> Sobre mí
-                    </h2>
-                    <p class="text-gray-600 text-lg leading-relaxed">
-                        Analista QA con trayectoria en entornos financieros, especializado en pruebas de APIs, análisis de datos con Oracle y PostgreSQL, y gestión ágil mediante Jira, QMetry y Grafana. Aporto valor en todo el ciclo de desarrollo, desde la planificación hasta la entrega, asegurando calidad y trazabilidad. Actualmente me encuentro incorporando herramientas basadas en modelos de lenguaje y automatización inteligente para optimizar procesos de prueba y análisis.
-                    </p>
+    <!-- Bento Grid Section -->
+    <main class="bento-section">
+        <div class="bento-grid">
+            <!-- Filosofía QA -->
+            <div class="bento-cell cell-philosophy" id="philosophy">
+                <blockquote>
+                    "La calidad no es un acto, es un hábito. En cada línea de código, en cada test, construimos la confianza que define el éxito de un producto."
+                </blockquote>
+                <cite>— Mi filosofía como Analista QA</cite>
+            </div>
+
+            <!-- Sobre Mí -->
+            <div class="bento-cell cell-about" id="about">
+                <h3><i class="fas fa-user-astronaut"></i> Sobre Mí</h3>
+                <p>
+                    Analista QA con trayectoria en entornos financieros, especializado en pruebas de APIs, análisis de datos con Oracle y PostgreSQL, y gestión ágil mediante Jira, QMetry y Grafana. Aporto valor en todo el ciclo de desarrollo, desde la planificación hasta la entrega, asegurando calidad y trazabilidad.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Actualmente incorporando herramientas basadas en modelos de lenguaje y automatización inteligente para optimizar procesos de prueba y análisis.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="bento-cell cell-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="7">0+</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="50">0+</span>
+                    <span class="stat-label">Proyectos Completados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="20">0+</span>
+                    <span class="stat-label">Tecnologías Dominadas</span>
                 </div>
             </div>
-        </section>
 
-        <!-- Experiencia -->
-        <section id="experiencia" class="mb-16" aria-labelledby="titulo-experiencia">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                <div class="p-8">
-                    <h2 id="titulo-experiencia" class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                        <i class="fas fa-briefcase text-primary" aria-hidden="true"></i> Experiencia Reciente
-                    </h2>
-                    <div class="border-left-primary pl-6 mb-8">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                            <h3 class="text-2xl font-semibold text-gray-700">ITAE (2022–2025)</h3>
-                            <span class="badge-secondary px-3 py-1 rounded-full text-sm font-medium">Analista QA</span>
+            <!-- Experiencia -->
+            <div class="bento-cell cell-experience" id="experience">
+                <h3><i class="fas fa-rocket"></i> Experiencia</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <span class="timeline-company">ITAE</span>
+                            <span class="timeline-period">2022 – 2025</span>
                         </div>
-                        <p class="text-gray-600 mb-4">Analista QA creación de casos de pruebas y mejora continua</p>
-                        <ul class="space-y-3">
-                            <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-primary" aria-hidden="true"></i><span class="text-gray-600">Diseño y ejecución de pruebas funcionales y de regresión (frontend/backend).</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-primary" aria-hidden="true"></i><span class="text-gray-600">Consultas avanzadas en <strong class="font-semibold">Oracle</strong> y <strong class="font-semibold">PostgreSQL</strong>.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-primary" aria-hidden="true"></i><span class="text-gray-600">Pruebas de APIs con <strong class="font-semibold">Postman</strong>.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-primary" aria-hidden="true"></i><span class="text-gray-600">Monitoreo con <strong class="font-semibold">Grafana</strong> y revisión de logs.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-primary" aria-hidden="true"></i><span class="text-gray-600">Gestión de bugs y test cases en <strong class="font-semibold">Jira</strong> + <strong class="font-semibold">QMetry</strong>.</span></li>
-                            <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-primary" aria-hidden="true"></i><span class="text-gray-600">Metodología de trabajo: <strong class="font-semibold">Scrum</strong>.</span></li>
+                        <div class="timeline-role">Analista QA</div>
+                        <ul class="timeline-list">
+                            <li>Diseño y ejecución de pruebas funcionales y de regresión (frontend/backend)</li>
+                            <li>Consultas avanzadas en Oracle y PostgreSQL</li>
+                            <li>Pruebas de APIs con Postman</li>
+                            <li>Monitoreo con Grafana y revisión de logs</li>
+                            <li>Gestión de bugs y test cases en Jira + QMetry</li>
+                            <li>Metodología de trabajo: Scrum</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Herramientas y Tecnologías -->
-        <section id="herramientas" class="mb-16" aria-labelledby="titulo-herramientas">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                <div class="p-8">
-                    <h2 id="titulo-herramientas" class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                        <i class="fas fa-tools text-primary" aria-hidden="true"></i> Herramientas y Tecnologías
-                    </h2>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Postman</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Grafana</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Oracle</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">PostgreSQL</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Jira</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">QMetry</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Git</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Scrum</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Automatización</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">APIs REST</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Inteligencia Artificial</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">MCP</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Astro</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">React</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">Go</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-4 py-2 rounded-full font-medium">TypeScript</span>
+            <!-- Skills -->
+            <div class="bento-cell cell-skills" id="skills">
+                <h3><i class="fas fa-microchip"></i> Stack Tecnológico</h3>
+                
+                <div class="skill-category">
+                    <div class="skill-category-title">Automatización & Testing</div>
+                    <div class="skills-diagram">
+                        <span class="skill-bubble"><span>Postman</span></span>
+                        <span class="skill-bubble"><span>Selenium</span></span>
+                        <span class="skill-bubble"><span>Cypress</span></span>
+                        <span class="skill-bubble"><span>Pytest</span></span>
+                        <span class="skill-bubble"><span>Jest</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Bases de Datos & Monitoreo</div>
+                    <div class="skills-diagram">
+                        <span class="skill-bubble"><span>Oracle</span></span>
+                        <span class="skill-bubble"><span>PostgreSQL</span></span>
+                        <span class="skill-bubble"><span>Grafana</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Gestión & Metodologías</div>
+                    <div class="skills-diagram">
+                        <span class="skill-bubble"><span>Jira</span></span>
+                        <span class="skill-bubble"><span>QMetry</span></span>
+                        <span class="skill-bubble"><span>Scrum</span></span>
+                        <span class="skill-bubble"><span>Git</span></span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">Desarrollo & IA</div>
+                    <div class="skills-diagram">
+                        <span class="skill-bubble"><span>Python</span></span>
+                        <span class="skill-bubble"><span>TypeScript</span></span>
+                        <span class="skill-bubble"><span>React</span></span>
+                        <span class="skill-bubble"><span>Go</span></span>
+                        <span class="skill-bubble"><span>Astro</span></span>
+                        <span class="skill-bubble"><span>Ollama</span></span>
+                        <span class="skill-bubble"><span>Claude Code</span></span>
+                        <span class="skill-bubble"><span>OpenAI</span></span>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Proyectos destacados -->
-        <section id="proyectos" class="mb-16" aria-labelledby="titulo-proyectos">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                <div class="p-8">
-                    <h2 id="titulo-proyectos" class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                        <i class="fas fa-folder-open text-primary" aria-hidden="true"></i> Casos o proyectos destacados
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="border border-gray-200 rounded-lg p-6 hover-border-primary transition-all">
-                            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                <i class="fas fa-credit-card text-primary" aria-hidden="true"></i> Validación de flujo completo de pago
-                            </h3>
-                            <p class="text-gray-600">
-                                Implementación y validación del flujo completo de pago en canal digital del banco, asegurando la integridad de las transacciones y la experiencia del usuario.
-                            </p>
+            <!-- Proyectos -->
+            <div class="bento-cell cell-projects" id="projects">
+                <h3><i class="fas fa-folder-open"></i> Proyectos Destacados</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-credit-card"></i></div>
+                        <h4 class="project-title">Validación de Flujo de Pago</h4>
+                        <div class="project-impact">💥 Impacto: Transacciones 100% seguras</div>
+                        <p class="project-description">
+                            Implementación y validación del flujo completo de pago en canal digital del banco, asegurando la integridad de las transacciones y la experiencia del usuario.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">Jira</span>
                         </div>
-                        <div class="border border-gray-200 rounded-lg p-6 hover-border-primary transition-all">
-                            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                <i class="fas fa-project-diagram text-primary" aria-hidden="true"></i> Testing de integraciones API
-                            </h3>
-                            <p class="text-gray-600">
-                                Pruebas exhaustivas de integraciones API con servicios internos del banco, garantizando la seguridad y estabilidad de las comunicaciones entre sistemas.
-                            </p>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h4 class="project-title">Testing de Integraciones API</h4>
+                        <div class="project-impact">💥 Impacto: Estabilidad garantizada</div>
+                        <p class="project-description">
+                            Pruebas exhaustivas de integraciones API con servicios internos del banco, garantizando la seguridad y estabilidad de las comunicaciones entre sistemas.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Postman</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">QMetry</span>
                         </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-camera"></i></div>
+                        <h4 class="project-title">Revelarte.Studio</h4>
+                        <div class="project-impact">💥 Impacto: E-commerce Premium</div>
+                        <p class="project-description">
+                            Galería fotográfica profesional especializada en arte fotográfico. Plataforma de e-commerce para venta de fotografías impresas con calidad premium.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Astro</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <a href="#" onclick="redirectToProject('revelarte')" class="project-link">
+                            Ver Proyecto <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h4 class="project-title">Tiendas Online Híbridas</h4>
+                        <div class="project-impact">💥 Impacto: 3x más económico</div>
+                        <p class="project-description">
+                            Tiendas online especializadas con integración REAL de pagos + sistema híbrido WhatsApp. Entrega rápida a precio justo.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Integración Pagos</span>
+                            <span class="tech-tag">WhatsApp API</span>
+                        </div>
+                        <a href="#" onclick="redirectToProject('carlosvende')" class="project-link">
+                            Ver Proyecto <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Proyectos Propios -->
-        <section id="proyectos-propios" class="mb-16" aria-labelledby="titulo-proyectos-propios">
-            <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                <div class="p-8">
-                    <h2 id="titulo-proyectos-propios" class="text-3xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                        <i class="fas fa-code text-primary" aria-hidden="true"></i> Mis Proyectos Web
-                    </h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="border border-gray-200 rounded-lg p-6 hover-border-primary transition-all">
-                            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                <i class="fas fa-camera text-primary" aria-hidden="true"></i> Revelarte.Studio
-                            </h3>
-                            <p class="text-gray-600 mb-4">
-                                Galería fotográfica profesional especializada en arte fotográfico. Plataforma de e-commerce para venta de fotografías impresas con calidad premium.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">Astro</span>
-                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">TypeScript</span>
-                                <span class="badge-small px-2 py-1 rounded text-xs font-medium">CSS3</span>
-                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs font-medium">Responsive</span>
-                            </div>
-                            <button onclick="redirectToProject('revelarte')" class="bg-primary hover-bg-dark-blue text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all">
-                                <i class="fas fa-external-link-alt" class="text-primary" aria-hidden="true"></i> Ver Proyecto
-                            </button>
-                        </div>
-                        <div class="border border-gray-200 rounded-lg p-6 hover-border-primary transition-all">
-                            <h3 class="text-xl font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                <i class="fas fa-car text-primary" aria-hidden="true"></i> Sistema Playa de Autos
-                            </h3>
-                            <p class="text-gray-600 mb-4">
-                                Sistema administrativo para gestión de playa de autos con panel ABM completo. API REST en Go, interfaz React y base de datos PostgreSQL para manejo integral de vehículos.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="bg-cyan-100 text-cyan-800 px-2 py-1 rounded text-xs font-medium">Go</span>
-                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-medium">React</span>
-                                <span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs font-medium">PostgreSQL</span>
-                                <span class="badge-small px-2 py-1 rounded text-xs font-medium">API REST</span>
-                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs font-medium">Panel ABM</span>
-                            </div>
-                            <button onclick="redirectToProject('frontend-test')" class="bg-primary hover-bg-dark-blue text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition-all">
-                                <i class="fas fa-external-link-alt" class="text-primary" aria-hidden="true"></i> Ver Proyecto
-                            </button>
-                        </div>
-                    </div>
+            <!-- Contacto -->
+            <div class="bento-cell cell-contact" id="contact">
+                <h3><i class="fas fa-paper-plane"></i> Conectemos</h3>
+                <p style="color: rgba(248, 250, 252, 0.7);">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+                <div class="contact-links">
+                    <a href="mailto:carlosbarriosr@proton.me" class="contact-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rodascaar/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/rodascaar" target="_blank" rel="noopener" class="contact-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
-        </section>
+
+            <!-- CV Descarga -->
+            <div class="bento-cell cell-cv">
+                <div class="cv-icon"><i class="fas fa-file-pdf"></i></div>
+                <h3>Descarga mi CV</h3>
+                <p style="color: rgba(248, 250, 252, 0.7); margin-bottom: 1rem;">Obtén más detalles sobre mi experiencia</p>
+                <a href="cv_Carlos_Barrios.pdf" download class="btn-glow btn-primary">
+                    <i class="fas fa-download"></i> Descargar CV
+                </a>
+            </div>
+        </div>
     </main>
 
-    <!-- Pie de página -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto max-w-6xl px-4 text-center">
-            <div class="flex justify-center gap-6 mb-6">
-                <a href="mailto:carlosbarriosr@proton.me" class="text-gray-300 hover:text-white transition-all" aria-label="Correo">
-                    <i class="fas fa-envelope text-2xl" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/rodascaar/" target="_blank" rel="noopener" class="text-gray-300 hover:text-white transition-all" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in text-2xl" aria-hidden="true"></i>
-                </a>
-                <a href="https://github.com/rodascaar" target="_blank" rel="noopener" class="text-gray-300 hover:text-white transition-all" aria-label="GitHub">
-                    <i class="fab fa-github text-2xl" aria-hidden="true"></i>
-                </a>
-            </div>
-            <p class="text-gray-400">© 2025 Carlos Barrios - Analista QA Especializado</p>
-        </div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Carlos Barrios - Analista QA Especializado</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: rgba(248, 250, 252, 0.3);">
+            Construyendo calidad, un test a la vez 🚀
+        </p>
     </footer>
 
+    <!-- Botón flotante de WhatsApp -->
+    <a id="whatsappBtn" class="whatsapp-btn" href="#" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
     <script>
-        // Botón WhatsApp
+        // ============================================
+        // CURSOR PERSONALIZADO
+        // ============================================
+        const cursor = document.getElementById('customCursor');
+        const cursorTrails = [];
+        const trailCount = 8;
+
+        // Crear trails
+        for (let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            trail.style.opacity = (1 - i / trailCount) * 0.5;
+            document.body.appendChild(trail);
+            cursorTrails.push({ el: trail, x: 0, y: 0 });
+        }
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            // Suavizar movimiento del cursor principal
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            cursor.style.left = cursorX - 10 + 'px';
+            cursor.style.top = cursorY - 10 + 'px';
+
+            // Animar trails
+            let prevX = cursorX, prevY = cursorY;
+            cursorTrails.forEach((trail, index) => {
+                const speed = 0.1 - (index * 0.01);
+                trail.x += (prevX - trail.x) * speed;
+                trail.y += (prevY - trail.y) * speed;
+                trail.el.style.left = trail.x - 4 + 'px';
+                trail.el.style.top = trail.y - 4 + 'px';
+                prevX = trail.x;
+                prevY = trail.y;
+            });
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Efecto hover en elementos interactivos
+        const interactiveElements = document.querySelectorAll('a, button, .skill-bubble, .project-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // ============================================
+        // PARTÍCULAS QA UNIVERSE
+        // ============================================
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let connections = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+                this.color = Math.random() > 0.5 ? '#3b82f6' : '#14b8a6';
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Rebotar en los bordes
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                // Interacción con el mouse
+                const dx = mouseX - this.x;
+                const dy = mouseY - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 150) {
+                    const force = (150 - dist) / 150;
+                    this.vx -= dx * force * 0.01;
+                    this.vy -= dy * force * 0.01;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        // Crear partículas
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar conexiones
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${1 - dist / 150})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Actualizar y dibujar partículas
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // ============================================
+        // SCROLL ANIMATIONS (Intersection Observer)
+        // ============================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100);
+                    
+                    // Animar números de stats
+                    if (entry.target.classList.contains('cell-stats')) {
+                        animateStats();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bento-cell').forEach(cell => {
+            observer.observe(cell);
+        });
+
+        // ============================================
+        // ANIMAR NÚMEROS DE STATS
+        // ============================================
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.dataset.count);
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+
+                const counter = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        stat.textContent = target + '+';
+                        clearInterval(counter);
+                    } else {
+                        stat.textContent = Math.floor(current) + '+';
+                    }
+                }, 16);
+            });
+        }
+
+        // ============================================
+        // SCROLL SUAVE
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ============================================
+        // WHATSAPP BUTTON
+        // ============================================
         const whatsappBtn = document.getElementById('whatsappBtn');
-        const encodedNumber = 'NTk1OTkxNzYwMzA1'; // Base64 encoded number
+        const encodedNumber = 'NTk1OTkxNzYwMzA1';
         const decodedNumber = atob(encodedNumber);
         whatsappBtn.addEventListener('click', function(e) {
             e.preventDefault();
             window.open(`https://wa.me/${decodedNumber}`, '_blank');
         });
 
-        // Redirecciones seguras para proyectos
+        // ============================================
+        // REDIRECCIONES SEGURAS
+        // ============================================
         function redirectToProject(projectKey) {
             const projects = {
                 'revelarte': 'aHR0cHM6Ly9nYWxlcmlhLnNpdGUucmV2ZWxhcnRlLnN0dWRpby8=',
+                'carlosvende': 'aHR0cHM6Ly9jYXJsb3N2ZW5kZS5zaXRlLnJldmVsYXJ0ZS5zdHVkaW8v',
                 'frontend-test': 'aHR0cHM6Ly9mcm9udGVuZC10ZXN0LnNpdGUucmV2ZWxhcnRlLnN0dWRpbw=='
             };
             
             if (projects[projectKey]) {
                 const url = atob(projects[projectKey]);
-                // Pequeño delay para prevenir ataques automatizados
                 setTimeout(() => {
                     window.open(url, '_blank', 'noopener,noreferrer');
                 }, 300);
             }
         }
 
-        // Animación skills y scroll suave
-        document.addEventListener('DOMContentLoaded', function() {
-            const skills = document.querySelectorAll('.skill-pill');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.style.opacity = 1;
-                            entry.target.style.transform = 'scale(1)';
-                        }, 100 * index);
-                    }
-                });
-            }, { threshold: 0.1 });
-            skills.forEach(skill => {
-                skill.style.opacity = 0;
-                skill.style.transform = 'scale(0.8)';
-                skill.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                observer.observe(skill);
+        // ============================================
+        // EFECTO PARALLAX EN TARJETAS DE PROYECTO
+        // ============================================
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
             });
-            // Scroll suave para anclas
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    if (href.length > 1 && document.querySelector(href)) {
-                        e.preventDefault();
-                        document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
             });
         });
+
+        // ============================================
+        // TYPING EFFECT PARA SUBTÍTULO (OPCIONAL)
+        // ============================================
+        const subtitle = document.querySelector('.hero-subtitle');
+        const originalText = subtitle.textContent;
+        subtitle.textContent = '';
+        let charIndex = 0;
+
+        function typeText() {
+            if (charIndex < originalText.length) {
+                subtitle.textContent += originalText.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeText, 50);
+            }
+        }
+
+        // Iniciar typing effect después de la animación de fade up
+        setTimeout(typeText, 1500);
     </script>
 </body>
 </html>
