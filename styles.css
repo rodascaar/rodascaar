@@ -95,6 +95,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  padding-top: 6rem;
   overflow: hidden;
 }
 
@@ -905,29 +906,51 @@ footer p {
   color: rgba(248, 250, 252, 0.5);
 }
 
-/* Botón flotante de WhatsApp */
+/* Botón flotante de WhatsApp - Mobile First */
 .whatsapp-btn {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
+  bottom: 1rem;
+  right: 1rem;
+  width: 50px;
+  height: 50px;
   background: linear-gradient(135deg, #25D366, #128C7E);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   transition: all 0.3s ease;
-  z-index: 100;
+  z-index: 1000;
   text-decoration: none;
 }
 
 .whatsapp-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+}
+
+/* Tablets y móviles medianos (iPad mini, Galaxy Samsung) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .whatsapp-btn {
+    bottom: 1rem;
+    right: 1.5rem;
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .whatsapp-btn {
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
 }
 
 /* Responsive */
@@ -947,10 +970,15 @@ footer p {
     grid-column: span 1;
   }
   
+  .hero-nav {
+    top: 1rem;
+  }
+  
   .hero-nav ul {
-    padding: 0.75rem 1rem;
-    gap: 1rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
   }
   
   .glitch-text {
@@ -960,6 +988,28 @@ footer p {
   .profile-image {
     width: 140px;
     height: 140px;
+  }
+}
+
+/* Responsive para tablets y móviles medianos (iPad mini, Galaxy Samsung) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-section {
+    padding-top: 5rem;
+  }
+  
+  .hero-nav {
+    top: 1.5rem;
+  }
+  
+  .hero-nav ul {
+    padding: 0.6rem 1.5rem;
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .profile-image {
+    width: 160px;
+    height: 160px;
   }
 }
 

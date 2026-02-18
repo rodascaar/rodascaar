@@ -13,10 +13,12 @@
 
 - [Descripción](#-descripción)
 - [Características](#-características)
+- [🤖 Chatbot QA Assistant](#-chatbot-qa-assistant)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Tecnologías Utilizadas](#-tecnologías-utilizadas)
 - [Instalación y Despliegue](#-instalación-y-despliegue)
 - [Personalización](#-personalización)
+- [Seguridad](#-seguridad)
 - [Contacto](#-contacto)
 - [Licencia](#-licencia)
 
@@ -58,26 +60,89 @@ Este proyecto es un sitio web estático y responsive diseñado para presentar el
 
 ---
 
+## 🤖 Chatbot QA Assistant
+
+El sitio incluye un **chatbot inteligente** integrado que responde preguntas sobre la experiencia y habilidades de Carlos Barrios.
+
+### Características del Chatbot
+
+| Característica | Descripción |
+|:--------------:|:-----------|
+| 🤖 **IA Integrada** | Conectado a OpenAI (GPT-4o-mini) para respuestas inteligentes |
+| 🔒 **Seguridad Robusta** | Rate limiting, sanitización de entrada y validación de respuestas |
+| 📝 **Historial** | Mantiene contexto de la conversación |
+| ⚡ **Quick Replies** | Respuestas rápidas predefinidas según contexto |
+| 🌐 **Modo Híbrido** | Funciona con API o respuestas locales (fallback) |
+| 📱 **Responsive** | Diseño adaptado para todos los dispositivos |
+
+### Arquitectura de Seguridad
+
+El chatbot implementa múltiples capas de seguridad:
+
+- **Rate Limiting (Frontend):** 30 requests/minuto por usuario
+- **Validación de Entrada:** Bloquea patrones peligrosos (XSS, inyección de código)
+- **Sanitización de HTML:** Previene ataques XSS
+- **Validación de Respuestas:** Filtra contenido peligroso del backend
+- **CSP Headers:** Content Security Policy configurado en `index.html`
+
+### Configuración
+
+El chatbot se configura en [`chatbot.js`](chatbot.js:16):
+
+```javascript
+const CHATBOT_CONFIG = {
+  apiEndpoint: 'https://carlos-bot-api.site.revelarte.studio/api/chat',
+  mode: 'api',  // 'api' o 'local'
+  rateLimit: {
+    maxRequests: 30,
+    periodMs: 60000
+  }
+};
+```
+
+### Documentación de Seguridad
+
+Para más información sobre la seguridad del chatbot, consulta:
+
+- 📖 [Guía de Seguridad del Chatbot](CHATBOT_SECURITY_GUIDE.md)
+- 📖 [Guía del Backend](CHATBOT_BACKEND_GUIDE.md)
+
+---
+
 ## 📁 Estructura del Proyecto
 
 ```
-rodascaar-1/
+rodascaar/
 │
-├── index.html              # Página principal del CV
-├── styles.css              # Estilos personalizados
-├── profile.webp            # Imagen de perfil optimizada
-├── cv_Carlos_Barrios.pdf   # CV en formato PDF
-└── README.md               # Documentación del proyecto
+├── index.html                    # Página principal del CV
+├── styles.css                    # Estilos personalizados
+├── chatbot.css                   # Estilos del chatbot
+├── chatbot.js                    # Lógica del chatbot (seguro)
+├── chatbot-secure.js             # Versión alternativa con proxy server
+├── profile.webp                  # Imagen de perfil optimizada
+├── cv_Carlos_Barrios.pdf         # CV en formato PDF
+├── README.md                     # Documentación del proyecto
+├── CHATBOT_SECURITY_GUIDE.md     # Guía de seguridad del chatbot
+├── CHATBOT_BACKEND_GUIDE.md      # Guía del backend del chatbot
+├── .env.local.example            # Ejemplo de variables de entorno
+├── proxy-server.js               # Servidor proxy (opcional, para desarrollo)
+└── proxy-package.json             # Dependencias del proxy server
 ```
 
 ### Descripción de Archivos
 
 | Archivo | Descripción |
 |:-------:|:-----------|
-| `index.html` | Estructura HTML semántica del sitio |
+| `index.html` | Estructura HTML semántica del sitio con CSP headers |
 | `styles.css` | Hoja de estilos con variables CSS personalizables |
+| `chatbot.css` | Estilos específicos del chatbot |
+| `chatbot.js` | Lógica del chatbot con seguridad integrada |
+| `chatbot-secure.js` | Versión alternativa con proxy server |
 | `profile.webp` | Imagen de perfil en formato WebP optimizado |
 | `cv_Carlos_Barrios.pdf` | Documento PDF del CV completo |
+| `CHATBOT_SECURITY_GUIDE.md` | Guía completa de seguridad del chatbot |
+| `CHATBOT_BACKEND_GUIDE.md` | Documentación del backend de CapRover |
+| `proxy-server.js` | Servidor proxy para desarrollo local (opcional) |
 
 ---
 
@@ -173,6 +238,50 @@ Edita el archivo [`index.html`](index.html:1) para actualizar:
 1. Reemplaza el archivo `profile.webp` con tu imagen
 2. Asegúrate de que la imagen esté optimizada (formato WebP recomendado)
 3. Mantén el nombre del archivo o actualiza la referencia en `index.html`
+
+---
+
+## 🔒 Seguridad
+
+Este proyecto implementa múltiples capas de seguridad para proteger contra vulnerabilidades comunes en aplicaciones web.
+
+### Medidas de Seguridad Implementadas
+
+#### Frontend (GitHub Pages)
+
+| Medida | Descripción |
+|:-------:|:-----------|
+| 🛡️ **CSP Headers** | Content Security Policy para prevenir XSS |
+| 🔒 **Rate Limiting** | 30 requests/minuto por usuario |
+| ✅ **Validación de Entrada** | Bloquea patrones peligrosos |
+| 🧹 **Sanitización de HTML** | Previene inyección de código |
+| 🔍 **Validación de Respuestas** | Filtra contenido del backend |
+
+#### Backend (CapRover)
+
+| Medida | Descripción |
+|:-------:|:-----------|
+| 🚦 **Rate Limiting** | Por IP y por tokens |
+| 🛡️ **Input Sanitizer** | Detección de inyección de prompts |
+| 🔓 **Jailbreak Detector** | Previene ataques de jailbreaking |
+| 🔐 **System Prompt Protection** | Protege el prompt del sistema |
+
+### Documentación de Seguridad
+
+Para más detalles sobre la seguridad del chatbot:
+
+- 📖 [Guía de Seguridad del Chatbot](CHATBOT_SECURITY_GUIDE.md)
+- 📖 [Guía del Backend](CHATBOT_BACKEND_GUIDE.md)
+
+### Buenas Prácticas
+
+1. **Nunca exponer API keys sensibles** en el frontend
+2. **Usar HTTPS** en todas las conexiones
+3. **Implementar rate limiting** en múltiples capas
+4. **Validar y sanitizar** todas las entradas
+5. **Configurar CSP** correctamente
+6. **Monitorear logs** de seguridad regularmente
+7. **Rotar credenciales** periódicamente
 
 ---
 
