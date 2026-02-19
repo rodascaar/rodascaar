@@ -191,6 +191,39 @@ class QAAssistant {
     this.init();
   }
 
+  // ============================================
+  // FUNCIÓN LINKIFY - Convertir URLs en enlaces clickeables
+  // ============================================
+  linkify(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, '<a href="$1" target="_blank" class="message-link">$1</a>');
+  }
+
+  // ============================================
+  // PROCESAR CONTENIDO DE MENSAJE - Markdown + Linkify
+  // ============================================
+  processMessageContent(text) {
+    // Primero aplicar linkify para convertir URLs sueltas en enlaces
+    // Esto debe hacerse ANTES de Markdown para evitar procesar URLs ya formateadas
+    let processed = this.linkify(text);
+    
+    // Luego convertir Markdown a HTML si marked está disponible
+    processed = typeof marked !== 'undefined' ? marked.parse(processed) : processed;
+    
+    return processed;
+  }
+
+  // ============================================
+  // ORDENAR MENSAJES POR TIMESTAMP
+  // ============================================
+  sortMessagesByTimestamp() {
+    this.messages.sort((a, b) => {
+      const timeA = a.timestamp || 0;
+      const timeB = b.timestamp || 0;
+      return timeA - timeB;
+    });
+  }
+
   init() {
     this.createChatbotUI();
     this.attachEventListeners();
@@ -357,6 +390,39 @@ class QAAssistant {
     this.scrollToBottom();
   }
 
+  // ============================================
+  // RENDERIZAR TODOS LOS MENSAJES ORDENADOS
+  // ============================================
+  renderAllMessages() {
+    this.sortMessagesByTimestamp();
+    const container = document.getElementById('chatbotMessages');
+    container.innerHTML = '';  // Limpiar contenedor
+    
+    this.messages.forEach(msg => {
+      if (msg.role === 'user') {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'user-message';
+        messageDiv.innerHTML = `<div class="message-content">${this.escapeHtml(msg.content)}</div>`;
+        container.appendChild(messageDiv);
+      } else {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'bot-message';
+        messageDiv.innerHTML = `
+          <div class="bot-avatar-small">
+            <svg viewBox="0 0 50 50" style="width: 18px; height: 18px;">
+              <rect x="10" y="10" width="30" height="25" rx="5" fill="none" stroke="white" stroke-width="2"/>
+              <circle cx="18" cy="20" r="4" fill="white"/>
+              <circle cx="32" cy="20" r="4" fill="white"/>
+            </svg>
+          </div>
+          <div class="message-content">${this.processMessageContent(msg.content)}</div>
+        `;
+        container.appendChild(messageDiv);
+      }
+    });
+    this.scrollToBottom();
+  }
+
   // Agregar mensaje del bot
   addBotMessage(message, quickReplies = []) {
     const messagesContainer = document.getElementById('chatbotMessages');
@@ -370,7 +436,7 @@ class QAAssistant {
           <circle cx="32" cy="20" r="4" fill="white"/>
         </svg>
       </div>
-      <div class="message-content">${message}</div>
+      <div class="message-content">${this.processMessageContent(message)}</div>
     `;
     messagesContainer.appendChild(messageDiv);
     this.scrollToBottom();
@@ -546,9 +612,18 @@ class QAAssistant {
 
       const data = await response.json();
       
-      // Guardar mensaje en historial
-      this.messages.push({ role: 'user', content: message });
-      this.messages.push({ role: 'assistant', content: data.message });
+      // Guardar mensaje en historial con timestamp
+      const timestamp = Date.now();
+      this.messages.push({
+        role: 'user',
+        content: message,
+        timestamp: timestamp
+      });
+      this.messages.push({
+        role: 'assistant',
+        content: data.message,
+        timestamp: timestamp + 1  // +1 para asegurar orden correcto
+      });
 
       return {
         message: data.message,

@@ -310,6 +310,8 @@
   color: var(--off-white);
   line-height: 1.5;
   font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .bot-message .message-content strong {
@@ -319,6 +321,75 @@
 .bot-message .message-content .highlight {
   color: var(--neon-purple);
   font-weight: 600;
+}
+
+/* Enlaces clickeables en mensajes */
+.bot-message .message-content a,
+.user-message .message-content a {
+  color: var(--electric-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--electric-blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  transition: all 0.2s ease;
+}
+
+.bot-message .message-content a:hover,
+.user-message .message-content a:hover {
+  color: var(--cyber-teal);
+  text-decoration-color: var(--cyber-teal);
+}
+
+/* Estilos para listas en mensajes */
+.bot-message .message-content ul,
+.bot-message .message-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.bot-message .message-content li {
+  margin: 0.25rem 0;
+}
+
+.bot-message .message-content li::marker {
+  color: var(--cyber-teal);
+}
+
+/* Estilos para párrafos en mensajes */
+.bot-message .message-content p {
+  margin: 0.5rem 0;
+}
+
+.bot-message .message-content p:first-child {
+  margin-top: 0;
+}
+
+.bot-message .message-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Estilos para código inline */
+.bot-message .message-content code {
+  background: rgba(59, 130, 246, 0.2);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+}
+
+/* Estilos para bloques de código */
+.bot-message .message-content pre {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 0.5rem 0;
+}
+
+.bot-message .message-content pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.85em;
 }
 
 /* Mensaje del usuario */
@@ -336,6 +407,8 @@
   color: white;
   line-height: 1.5;
   font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* Indicador de escribiendo */
