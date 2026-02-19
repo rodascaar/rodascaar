@@ -1,5 +1,5 @@
 /* ============================================
-   CHATBOT QA ASSISTANT - STYLES
+   CHATBOT QA ASSISTANT - STYLES (OPTIMIZADO)
    ============================================ */
 
 /* Botón flotante del chatbot - Mobile First */
@@ -19,38 +19,6 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 9997;
   animation: pulse-glow 2s infinite;
-}
-
-/* ID específico para el botón del chatbot - permite manipulación independiente */
-#bot-launcher.chatbot-trigger {
-  bottom: 90px !important;
-}
-
-/* Tablets y móviles medianos (iPad mini, Galaxy Samsung) */
-@media (min-width: 481px) and (max-width: 768px) {
-  .chatbot-trigger {
-    bottom: 90px !important;
-    right: 1.5rem;
-    width: 58px;
-    height: 58px;
-  }
-}
-
-/* Desktop - Ajustado para evitar superposición con WhatsApp */
-@media (min-width: 769px) {
-  .chatbot-trigger {
-    bottom: 115px;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-  }
-}
-
-/* Desktop (pantallas mayores a 1024px) - Mayor separación vertical */
-@media (min-width: 1024px) {
-  .chatbot-trigger {
-    bottom: 215px !important;
-  }
 }
 
 .chatbot-trigger:hover {
@@ -75,7 +43,7 @@
 /* Ventana del chatbot - Mobile First */
 .chatbot-window {
   position: fixed;
-  bottom: 90px !important;
+  bottom: 90px;
   right: 1rem;
   width: calc(100vw - 2rem);
   max-width: 420px;
@@ -92,33 +60,6 @@
   transform: translateY(30px) scale(0.95);
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Tablets y móviles medianos (iPad mini, Galaxy Samsung) */
-@media (min-width: 481px) and (max-width: 768px) {
-  .chatbot-window {
-    width: calc(100vw - 3rem);
-    right: 1.5rem;
-    bottom: 90px !important;
-    max-height: 60vh;
-  }
-}
-
-/* Desktop - Ajustado para evitar superposición con WhatsApp */
-@media (min-width: 769px) {
-  .chatbot-window {
-    width: 480px;
-    right: 2rem;
-    bottom: 115px;
-    max-height: 500px;
-  }
-}
-
-/* Desktop (pantallas mayores a 1024px) - Mayor separación vertical */
-@media (min-width: 1024px) {
-  .chatbot-window {
-    bottom: 215px !important;
-  }
 }
 
 .chatbot-window.active {
@@ -538,7 +479,74 @@
   transform: translateY(0);
 }
 
-/* Responsive - Unificado para móviles */
+/* Estado de conexión */
+.connection-status {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.connection-status.connected {
+  color: var(--cyber-teal);
+  background: rgba(20, 184, 166, 0.1);
+}
+
+.connection-status.disconnected {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.connection-status.connecting {
+  color: var(--electric-blue);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.connection-status i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Skill tags en mensajes */
+.skill-tag {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.2);
+  color: var(--electric-blue);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+
+/* Links en mensajes */
+.message-link {
+  color: var(--cyber-teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.message-link:hover {
+  border-color: var(--cyber-teal);
+}
+
+/* ==========================================
+   MEDIA QUERIES CONSOLIDADOS
+   ========================================== */
+
+/* Móviles pequeños (< 480px) */
 @media (max-width: 480px) {
   .chatbot-window {
     right: 1rem;
@@ -551,10 +559,14 @@
   
   .chatbot-trigger {
     right: 1rem;
-    bottom: 15px;
+    bottom: 90px !important;
     width: 55px;
     height: 55px;
     z-index: 1001;
+  }
+  
+  #bot-launcher.chatbot-trigger {
+    bottom: 90px !important;
   }
   
   .chatbot-trigger i {
@@ -626,8 +638,19 @@
   }
 }
 
-/* Responsive para tablets y móviles medianos (iPad mini, Galaxy Samsung) */
+/* Tablets y móviles medianos (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
+  .chatbot-trigger {
+    bottom: 15px;
+    right: 1.5rem;
+    width: 58px;
+    height: 58px;
+  }
+  
+  .chatbot-trigger i {
+    font-size: 1.5rem;
+  }
+  
   .chatbot-window {
     width: calc(100vw - 3rem);
     right: 1.5rem;
@@ -635,119 +658,58 @@
     max-height: 55vh;
   }
   
-  .chatbot-trigger {
-    right: 1.5rem;
-    bottom: 15px;
-    width: 55px;
-    height: 55px;
-  }
-  
-  .chatbot-trigger i {
-    font-size: 1.5rem;
-  }
-  
   .chatbot-messages {
     max-height: calc(65vh - 170px);
   }
 }
 
-/* Estado de conexión */
-.connection-status {
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  text-align: center;
-  border-bottom: 1px solid var(--glass-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.connection-status.connected {
-  color: var(--cyber-teal);
-  background: rgba(20, 184, 166, 0.1);
-}
-
-.connection-status.disconnected {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.1);
-}
-
-.connection-status.connecting {
-  color: var(--electric-blue);
-  background: rgba(59, 130, 246, 0.1);
-}
-
-.connection-status i {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Skill tags en mensajes */
-.skill-tag {
-  display: inline-block;
-  background: rgba(59, 130, 246, 0.2);
-  color: var(--electric-blue);
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  margin: 0.2rem;
-}
-
-/* Links en mensajes */
-.message-link {
-  color: var(--cyber-teal);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.message-link:hover {
-  border-color: var(--cyber-teal);
-}
-
-/* ==========================================
-   FORZAR SEPARACIÓN DE BOTONES EN DESKTOP
-   ========================================== */
-@media (min-width: 1024px) {
-  #bot-launcher.chatbot-trigger,
+/* Desktop (769px - 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
   .chatbot-trigger {
-    bottom: 130px !important; /* Esto lo empuja hacia arriba, lejos de WhatsApp */
+    bottom: 115px;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
   }
-}
-
-/* ==========================================
-   AJUSTE DE DIMENSIONES DEL CHATBOT EN DESKTOP
-   ========================================== */
-@media (min-width: 1024px) {
+  
   .chatbot-window {
-    width: 400px !important;    /* Un poco más ancho para legibilidad */
-    height: 600px !important;   /* Un poco más alto */
-    max-height: 80vh !important; /* Asegura que no se salga de la pantalla */
-    bottom: 100px;              /* Mantener la separación que ya logramos */
+    width: 480px;
+    right: 2rem;
+    bottom: 115px;
+    max-height: 500px;
   }
 }
 
-/* ==========================================
-   AJUSTE DE VENTANA DEL CHAT PARA MÓVILES
-   ========================================== */
+/* Móviles (< 767px) - ajuste específico para ventana */
 @media (max-width: 767px) {
   .chatbot-window {
-    width: calc(100vw - 2rem) !important; /* Casi todo el ancho móvil */
-    right: 1rem !important;
-    bottom: 80px !important; /* Para que no tape el botón de WhatsApp si está abierto */
-    max-height: 70vh !important; /* Más alto para leer mejor el inicio */
+    width: calc(100vw - 2rem);
+    right: 1rem;
+    bottom: 80px;
+    max-height: 70vh;
   }
 
   .chatbot-messages {
-    max-height: calc(70vh - 120px) !important; /* Ajuste proporcional del área de texto */
+    max-height: calc(70vh - 120px);
+  }
+}
+
+/* Desktop grande (>= 1024px) - ÚLTIMO BLOQUE PARA MÁXIMA PRIORIDAD */
+@media (min-width: 1024px) {
+  #bot-launcher {
+    position: fixed !important;
+    bottom: 90px !important;
+    right: 1rem !important;
+    width: 60px !important;
+    height: 60px !important;
+    z-index: 9997 !important;
+  }
+  
+  .chatbot-window {
+    width: 400px;
+    right: 2rem;
+    bottom: 100px;
+    height: 600px;
+    max-height: 80vh;
   }
 }
