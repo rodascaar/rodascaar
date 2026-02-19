@@ -13,7 +13,6 @@
 
 - [Descripción](#-descripción)
 - [Características](#-características)
-- [🤖 Chatbot QA Assistant](#-chatbot-qa-assistant)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Tecnologías Utilizadas](#-tecnologías-utilizadas)
 - [Instalación y Despliegue](#-instalación-y-despliegue)
@@ -49,6 +48,7 @@ Este proyecto es un sitio web estático y responsive diseñado para presentar el
 | 💬 **Contacto Directo** | Botón flotante de WhatsApp integrado |
 | 📄 **PDF Descargable** | CV completo disponible para descargar |
 | 🌈 **Paleta Corporativa** | Colores personalizables mediante variables CSS |
+| 🤖 **Chatbot IA** | Asistente inteligente para consultas sobre el perfil |
 
 ### Secciones del CV
 
@@ -89,15 +89,15 @@ El chatbot implementa múltiples capas de seguridad:
 
 ### Configuración
 
-El chatbot se configura en [`chatbot.js`](chatbot.js:8):
+El chatbot se configura en [`chatbot.js`](chatbot.js:8). Para desplegarlo en producción, **debes configurar las variables de entorno**:
 
 ```javascript
 const CHATBOT_CONFIG = {
-  // URL de tu backend API - Backend desplegado en CapRover
-  apiEndpoint: 'https://carlos-bot-api.site.revelarte.studio/api/chat',
+  // URL de tu backend API - Configurar como variable de entorno
+  apiEndpoint: process.env.CHATBOT_API_URL || 'TU_API_ENDPOINT_AQUI',
   
-  // API key del cliente (configurada en el backend)
-  clientApiKey: '25d0a2a8bbe1a1a19873791305088f6a',
+  // API key del cliente - Configurar como variable de entorno
+  clientApiKey: process.env.CHATBOT_API_KEY || 'TU_API_KEY_AQUI',
   
   // Configuración de la petición
   apiConfig: {
@@ -115,12 +115,7 @@ const CHATBOT_CONFIG = {
 };
 ```
 
-### Mejoras Recientes
-
-- ✅ Corrección del error `CHBOT_CONFIG` → `CHATBOT_CONFIG`
-- ✅ Agregado de `z-index: 1003` al botón de cerrar para asegurar accesibilidad
-- ✅ Ajuste de dimensiones: más ancho (420px-480px) y menos alto (500px-55vh)
-- ✅ Mejora de UX en chats largos
+⚠️ **Importante:** Nunca expongas credenciales sensibles en el código fuente. Usa variables de entorno o archivos de configuración excluidos del control de versiones.
 
 ---
 
@@ -305,7 +300,7 @@ Este proyecto está bajo la **Licencia MIT**.
 ```
 MIT License
 
-Copyright (c) 2025 Carlos Barrios
+Copyright (c) 2026 Carlos Barrios
 
 Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
 de este software y archivos de documentación asociados (el "Software"), para
