@@ -202,8 +202,8 @@ class QAAssistant {
     // Botón trigger
     const trigger = document.createElement('div');
     trigger.className = 'chatbot-trigger';
+    trigger.id = 'bot-launcher'; // ID específico para manipulación independiente
     trigger.innerHTML = '<i class="fas fa-robot"></i>';
-    trigger.id = 'chatbotTrigger';
     document.body.appendChild(trigger);
 
     // Ventana del chatbot
@@ -273,7 +273,7 @@ class QAAssistant {
   // Adjuntar event listeners
   attachEventListeners() {
     // Toggle chatbot
-    document.getElementById('chatbotTrigger').addEventListener('click', () => this.toggle());
+    document.getElementById('bot-launcher').addEventListener('click', () => this.toggle());
     document.getElementById('chatbotClose').addEventListener('click', () => this.close());
 
     // Enviar mensaje
