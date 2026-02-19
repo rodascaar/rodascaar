@@ -5,7 +5,7 @@
 /* Botón flotante del chatbot - Mobile First */
 .chatbot-trigger {
   position: fixed;
-  bottom: 80px;
+  bottom: 90px !important;
   right: 1rem;
   width: 55px;
   height: 55px;
@@ -15,35 +15,47 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1001;
+  z-index: 9997;
   animation: pulse-glow 2s infinite;
+}
+
+/* ID específico para el botón del chatbot - permite manipulación independiente */
+#bot-launcher.chatbot-trigger {
+  bottom: 90px !important;
 }
 
 /* Tablets y móviles medianos (iPad mini, Galaxy Samsung) */
 @media (min-width: 481px) and (max-width: 768px) {
   .chatbot-trigger {
-    bottom: 80px;
+    bottom: 90px !important;
     right: 1.5rem;
     width: 58px;
     height: 58px;
   }
 }
 
-/* Desktop */
+/* Desktop - Ajustado para evitar superposición con WhatsApp */
 @media (min-width: 769px) {
   .chatbot-trigger {
-    bottom: 100px;
+    bottom: 115px;
     right: 2rem;
     width: 60px;
     height: 60px;
   }
 }
 
+/* Desktop (pantallas mayores a 1024px) - Mayor separación vertical */
+@media (min-width: 1024px) {
+  .chatbot-trigger {
+    bottom: 215px !important;
+  }
+}
+
 .chatbot-trigger:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 30px rgba(59, 130, 246, 0.6);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
 }
 
 .chatbot-trigger i {
@@ -53,17 +65,17 @@
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
   }
   50% {
-    box-shadow: 0 4px 30px rgba(59, 130, 246, 0.7);
+    box-shadow: 0 2px 15px rgba(59, 130, 246, 0.5);
   }
 }
 
 /* Ventana del chatbot - Mobile First */
 .chatbot-window {
   position: fixed;
-  bottom: 80px;
+  bottom: 90px !important;
   right: 1rem;
   width: calc(100vw - 2rem);
   max-width: 420px;
@@ -71,11 +83,11 @@
   background: linear-gradient(180deg, rgba(10, 10, 20, 0.95), rgba(20, 20, 30, 0.95));
   border: 1px solid rgba(59, 130, 246, 0.3);
   border-radius: 16px;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  z-index: 1002;
+  z-index: 9996;
   opacity: 0;
   transform: translateY(30px) scale(0.95);
   pointer-events: none;
@@ -87,18 +99,25 @@
   .chatbot-window {
     width: calc(100vw - 3rem);
     right: 1.5rem;
-    bottom: 80px;
+    bottom: 90px !important;
     max-height: 60vh;
   }
 }
 
-/* Desktop */
+/* Desktop - Ajustado para evitar superposición con WhatsApp */
 @media (min-width: 769px) {
   .chatbot-window {
     width: 480px;
     right: 2rem;
-    bottom: 100px;
+    bottom: 115px;
     max-height: 500px;
+  }
+}
+
+/* Desktop (pantallas mayores a 1024px) - Mayor separación vertical */
+@media (min-width: 1024px) {
+  .chatbot-window {
+    bottom: 215px !important;
   }
 }
 
@@ -693,4 +712,42 @@
 
 .message-link:hover {
   border-color: var(--cyber-teal);
+}
+
+/* ==========================================
+   FORZAR SEPARACIÓN DE BOTONES EN DESKTOP
+   ========================================== */
+@media (min-width: 1024px) {
+  #bot-launcher.chatbot-trigger,
+  .chatbot-trigger {
+    bottom: 130px !important; /* Esto lo empuja hacia arriba, lejos de WhatsApp */
+  }
+}
+
+/* ==========================================
+   AJUSTE DE DIMENSIONES DEL CHATBOT EN DESKTOP
+   ========================================== */
+@media (min-width: 1024px) {
+  .chatbot-window {
+    width: 400px !important;    /* Un poco más ancho para legibilidad */
+    height: 600px !important;   /* Un poco más alto */
+    max-height: 80vh !important; /* Asegura que no se salga de la pantalla */
+    bottom: 100px;              /* Mantener la separación que ya logramos */
+  }
+}
+
+/* ==========================================
+   AJUSTE DE VENTANA DEL CHAT PARA MÓVILES
+   ========================================== */
+@media (max-width: 767px) {
+  .chatbot-window {
+    width: calc(100vw - 2rem) !important; /* Casi todo el ancho móvil */
+    right: 1rem !important;
+    bottom: 80px !important; /* Para que no tape el botón de WhatsApp si está abierto */
+    max-height: 70vh !important; /* Más alto para leer mejor el inicio */
+  }
+
+  .chatbot-messages {
+    max-height: calc(70vh - 120px) !important; /* Ajuste proporcional del área de texto */
+  }
 }

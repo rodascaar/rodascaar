@@ -32,7 +32,12 @@
         
         <!-- Navegación -->
         <nav class="hero-nav">
-            <ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
                 <li><a href="#about">Sobre mí</a></li>
                 <li><a href="#experience">Experiencia</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -512,6 +517,44 @@
         whatsappBtn.addEventListener('click', function(e) {
             e.preventDefault();
             window.open(`https://wa.me/${decodedNumber}`, '_blank');
+        });
+
+        // ============================================
+        // MENÚ HAMBURGUESA PARA MÓVIL
+        // ============================================
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.hero-nav a');
+
+        // Toggle del menú
+        mobileMenuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Prevenir scroll del body cuando el menú está abierto
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Cerrar menú al hacer clic fuera del menú
+        document.addEventListener('click', function(e) {
+            if (!mobileMenuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileMenuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
 
         // ============================================
