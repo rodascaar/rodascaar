@@ -1,4 +1,4 @@
-/* styles.css - Portafolio 2026 - QA Universe + Bento Grid */
+/* styles.css - Portafolio 2026 - QA Universe + Bento Grid (OPTIMIZADO) */
 :root {
   /* Paleta de Colores 2026 */
   --deep-space: #0a0a0f;
@@ -15,6 +15,12 @@
   --secondary-orange: #F5993D;
   --light-blue: #60a5fa;
   --dark-blue: #1d4ed8;
+  
+  /* Colores de WhatsApp */
+  --whatsapp-green: #25D366;
+  --whatsapp-dark-green: #128C7E;
+  --whatsapp-shadow: rgba(37, 211, 102, 0.4);
+  --whatsapp-shadow-hover: rgba(37, 211, 102, 0.6);
 }
 
 /* Reset y Base */
@@ -535,12 +541,6 @@ body {
   grid-column: span 12;
 }
 
-@media (min-width: 768px) {
-  .cell-about {
-    grid-column: span 8;
-  }
-}
-
 .cell-about h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -564,12 +564,6 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
-}
-
-@media (min-width: 768px) {
-  .cell-stats {
-    grid-column: span 4;
-  }
 }
 
 .stat-item {
@@ -598,12 +592,6 @@ body {
 /* Celda de Experiencia - Grande */
 .cell-experience {
   grid-column: span 12;
-}
-
-@media (min-width: 1024px) {
-  .cell-experience {
-    grid-column: span 7;
-  }
 }
 
 .cell-experience h3 {
@@ -696,12 +684,6 @@ body {
 /* Celda de Skills - Mediana */
 .cell-skills {
   grid-column: span 12;
-}
-
-@media (min-width: 1024px) {
-  .cell-skills {
-    grid-column: span 5;
-  }
 }
 
 .cell-skills h3 {
@@ -888,12 +870,6 @@ body {
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .cell-contact {
-    grid-column: span 6;
-  }
-}
-
 .cell-contact h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -938,12 +914,6 @@ body {
   background: linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(59, 130, 246, 0.1));
 }
 
-@media (min-width: 768px) {
-  .cell-cv {
-    grid-column: span 6;
-  }
-}
-
 .cell-cv h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -983,14 +953,14 @@ footer p {
   right: 1rem;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #25D366, #128C7E);
+  background: linear-gradient(135deg, var(--whatsapp-green), var(--whatsapp-dark-green));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.4rem;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 4px 20px var(--whatsapp-shadow);
   transition: all 0.3s ease;
   z-index: 9999;
   text-decoration: none;
@@ -998,41 +968,95 @@ footer p {
 
 .whatsapp-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+  box-shadow: 0 6px 30px var(--whatsapp-shadow-hover);
 }
 
-/* Tablets y móviles medianos (iPad mini, Galaxy Samsung) */
-@media (min-width: 481px) and (max-width: 768px) {
-  .whatsapp-btn {
-    bottom: 1rem;
-    right: 1.5rem;
-    width: 55px;
-    height: 55px;
-    font-size: 1.5rem;
+/* ==========================================
+   MEDIA QUERIES CONSOLIDADOS
+   ========================================== */
+
+/* Móviles pequeños (< 480px) */
+@media (max-width: 480px) {
+  h1, .glitch-text {
+    font-size: clamp(1.1rem, 14vw, 1.8rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
-}
-
-/* Desktop */
-@media (min-width: 769px) {
-  .whatsapp-btn {
-    bottom: 2rem;
-    right: 2rem;
-    width: 60px;
-    height: 60px;
-    font-size: 1.8rem;
+  
+  h2 {
+    font-size: clamp(1rem, 7vw, 1.4rem);
+    margin-bottom: 0.75rem;
   }
-}
-
-/* Desktop (pantallas mayores a 1024px) - Corrección del navbar */
-@media (min-width: 1024px) {
-  .hero-nav {
-    width: fit-content;
-    max-width: 600px;
+  
+  h3 {
+    font-size: clamp(0.9rem, 5vw, 1.1rem);
   }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+  
+  .hero-subtitle {
+    font-size: clamp(0.7rem, 4.5vw, 0.9rem);
+    margin-bottom: 1rem;
+    padding: 0;
+    line-height: 1.4;
+  }
+  
+  .bento-cell {
+    padding: 15px;
+    border-radius: 16px;
+  }
+  
+  .project-card {
+    padding: 15px;
+  }
+  
+  .hero-section {
+    padding: 5%;
+    padding-top: 5rem;
+    min-height: auto;
+    width: 100%;
+  }
+  
+  .hero-content {
+    width: 90%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-container {
+    margin-bottom: 1rem;
+  }
+  
+  .hero-buttons {
+    gap: 0.75rem;
+    padding: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-glow {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .orbiting-element {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+  
+  @keyframes orbit {
+    from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
+  }
+  
   .bento-grid {
     grid-template-columns: 1fr;
     padding: 0;
@@ -1051,133 +1075,6 @@ footer p {
     padding: 20px;
   }
   
-  /* Ajustes del Hero Section para móvil */
-  .hero-section {
-    padding: 5%;
-    padding-top: 5rem;
-    min-height: auto;
-    width: 100%;
-  }
-  
-  .hero-content {
-    width: 90%;
-    max-width: 100%;
-    padding: 0;
-    margin: 0 auto;
-  }
-  
-  /* Ajustes del menú de navegación para móvil - Menú Hamburguesa */
-  .hero-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    z-index: 1000;
-  }
-  
-  .mobile-menu-toggle {
-    display: flex;
-  }
-  
-  .hero-nav ul {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    padding: 5rem 2rem 2rem;
-    gap: 1.5rem;
-    font-size: 1.2rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0;
-    border: none;
-    background: rgba(10, 10, 15, 0.98);
-    backdrop-filter: blur(20px);
-    transition: left 0.3s ease;
-  }
-  
-  .hero-nav ul.active {
-    left: 0;
-  }
-  
-  .hero-nav a {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-  }
-  
-  /* Ajustes de fuentes para móvil */
-  h1, .glitch-text {
-    font-size: clamp(1.3rem, 12vw, 2rem) !important;
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-  }
-  
-  h2 {
-    font-size: clamp(1.1rem, 6vw, 1.5rem) !important;
-    margin-bottom: 0.75rem;
-  }
-  
-  h3 {
-    font-size: clamp(0.95rem, 4vw, 1.2rem) !important;
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(0.75rem, 4vw, 0.95rem);
-    margin-bottom: 1rem;
-    padding: 0;
-    line-height: 1.4;
-  }
-  
-  .profile-image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 1rem;
-  }
-  
-  .profile-container {
-    margin-bottom: 1rem;
-  }
-  
-  /* Ajustes de botones en móvil */
-  .hero-buttons {
-    gap: 0.75rem;
-    padding: 0;
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .btn-glow {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  /* Elementos orbitantes más pequeños en móvil */
-  .orbiting-element {
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
-  }
-  
-  @keyframes orbit {
-    from { transform: rotate(0deg) translateX(70px) rotate(0deg); }
-    to { transform: rotate(360deg) translateX(70px) rotate(-360deg); }
-  }
-  
-  /* Ajustes para celdas del bento grid */
-  .bento-cell {
-    padding: 20px;
-    border-radius: 16px;
-  }
-  
-  .project-card {
-    padding: 20px;
-  }
-  
   .timeline-item {
     margin-bottom: 1.5rem;
   }
@@ -1188,35 +1085,16 @@ footer p {
   }
 }
 
-/* Responsive para pantallas muy pequeñas (< 480px) */
-@media (max-width: 480px) {
-  h1, .glitch-text {
-    font-size: clamp(1.1rem, 14vw, 1.8rem) !important;
-  }
-  
-  h2 {
-    font-size: clamp(1rem, 7vw, 1.4rem) !important;
-  }
-  
-  h3 {
-    font-size: clamp(0.9rem, 5vw, 1.1rem) !important;
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(0.7rem, 4.5vw, 0.9rem);
-  }
-  
-  .bento-cell {
-    padding: 15px;
-  }
-  
-  .project-card {
-    padding: 15px;
-  }
-}
-
-/* Responsive para tablets y móviles medianos (iPad mini, Galaxy Samsung) */
+/* Tablets y móviles medianos (481px - 768px) */
 @media (min-width: 481px) and (max-width: 768px) {
+  .whatsapp-btn {
+    bottom: 1rem;
+    right: 1.5rem;
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+  
   .hero-section {
     padding: 1.5rem;
     padding-top: 4.5rem;
@@ -1261,9 +1139,153 @@ footer p {
     from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
     to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
   }
+  
+  .cell-about {
+    grid-column: span 8;
+  }
+  
+  .cell-stats {
+    grid-column: span 4;
+  }
 }
 
-/* Utilidades */
-.text-primary { color: var(--primary-blue); }
-.bg-primary { background-color: var(--primary-blue); }
-.hover-bg-dark-blue:hover { background-color: var(--dark-blue); }
+/* Desktop (769px - 1023px) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .whatsapp-btn {
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+  
+  .cell-about {
+    grid-column: span 8;
+  }
+  
+  .cell-stats {
+    grid-column: span 4;
+  }
+  
+  .cell-experience {
+    grid-column: span 7;
+  }
+  
+  .cell-skills {
+    grid-column: span 5;
+  }
+  
+  .cell-contact {
+    grid-column: span 6;
+  }
+  
+  .cell-cv {
+    grid-column: span 6;
+  }
+}
+
+/* Desktop grande (>= 1024px) */
+@media (min-width: 1024px) {
+  .hero-nav {
+    width: fit-content;
+    max-width: 600px;
+  }
+  
+  .cell-about {
+    grid-column: span 8;
+  }
+  
+  .cell-stats {
+    grid-column: span 4;
+  }
+  
+  .cell-experience {
+    grid-column: span 7;
+  }
+  
+  .cell-skills {
+    grid-column: span 5;
+  }
+  
+  .cell-contact {
+    grid-column: span 6;
+  }
+  
+  .cell-cv {
+    grid-column: span 6;
+  }
+}
+
+/* Menú hamburguesa para móvil (< 768px) */
+@media (max-width: 768px) {
+  .hero-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .hero-nav ul {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    padding: 5rem 2rem 2rem;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    border: none;
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(20px);
+    transition: left 0.3s ease;
+  }
+  
+  .hero-nav ul.active {
+    left: 0;
+  }
+  
+  .hero-nav a {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+  
+  h1, .glitch-text {
+    font-size: clamp(1.3rem, 12vw, 2rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.1rem, 6vw, 1.5rem);
+  }
+  
+  h3 {
+    font-size: clamp(0.95rem, 4vw, 1.2rem);
+  }
+  
+  .bento-grid {
+    grid-template-columns: 1fr;
+    padding: 0;
+    width: 90%;
+  }
+  
+  .cell-philosophy,
+  .cell-about,
+  .cell-stats,
+  .cell-experience,
+  .cell-skills,
+  .cell-projects,
+  .cell-contact,
+  .cell-cv {
+    grid-column: span 1;
+    padding: 20px;
+  }
+}
