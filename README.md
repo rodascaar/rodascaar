@@ -1,301 +1,265 @@
-# 🌐 CV Profesional – Carlos Barrios
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!--  ░█▀▄░█▀█░█▀▀░█░█░█▀█░█▄█░█▀█░█░█░█▀▀░█▀▀░█▀▄  ─ CARLOS BARRIOS    -->
+<!--  ░█░█░█░█░█▀▀░░█░░█▀█░█░█░█░█░█▀█░█▀▀░█▀▀░█▀▄  ─ QA AUTOMATION ENG   -->
+<!--  ░▀▀░░▀▀░░▀▀▀░░▀░░▀░░░▀░░░▀▀░░▀░▀░▀▀▀░▀░░░▀░▀  ─ AI PROCESS ORC   -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![Responsive](https://img.shields.io/badge/Responsive-Ready-green?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
-
-> Sitio web del currículum vitae de **Carlos Barrios**, Analista QA especializado en automatización de pruebas, APIs REST y calidad de software en entornos financieros.
-
----
-
-## 📋 Tabla de Contenidos
-
-- [Descripción](#-descripción)
-- [Características](#-características)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [Instalación y Despliegue](#-instalación-y-despliegue)
-- [Personalización](#-personalización)
-- [Seguridad](#-seguridad)
-- [Contacto](#-contacto)
-- [Licencia](#-licencia)
-
----
-
-## 📖 Descripción
-
-Este proyecto es un sitio web estático y responsive diseñado para presentar el currículum vitae profesional de Carlos Barrios. El diseño está optimizado para ofrecer una experiencia de usuario fluida, con una estética moderna y profesional que destaca las habilidades técnicas y experiencia en QA.
-
-### Objetivos del Proyecto
-
-- ✅ Presentar información profesional de forma clara y accesible
-- ✅ Facilitar el contacto directo a través de múltiples canales
-- ✅ Proporcionar descarga rápida del CV en formato PDF
-- ✅ Garantizar accesibilidad y compatibilidad con dispositivos móviles
-
----
-
-## ✨ Características
-
-| Característica | Descripción |
-|:--------------:|:-----------|
-| 🎨 **Diseño Moderno** | Interfaz limpia con estética profesional |
-| 📱 **Responsive** | Adaptado para móviles, tablets y escritorio |
-| 🎯 **Accesibilidad** | Cumple con estándares de accesibilidad web |
-| ⚡ **Rendimiento** | Carga rápida sin dependencias pesadas |
-| 🔗 **SEO Optimizado** | Metadatos para compartir en redes sociales |
-| 💬 **Contacto Directo** | Botón flotante de WhatsApp integrado |
-| 📄 **PDF Descargable** | CV completo disponible para descargar |
-| 🌈 **Paleta Corporativa** | Colores personalizables mediante variables CSS |
-| 🤖 **Chatbot IA** | Asistente inteligente para consultas sobre el perfil |
-
-### Secciones del CV
-
-1. **Sobre Mí** – Presentación personal y resumen profesional
-2. **Experiencia** – Historial laboral detallado
-3. **Herramientas** – Stack tecnológico y competencias
-4. **Proyectos** – Portafolio de proyectos relevantes
-5. **Contacto** – Información de contacto y redes sociales
-
----
-
-## 🤖 Chatbot QA Assistant
-
-El sitio incluye un **chatbot inteligente** integrado que responde preguntas sobre la experiencia y habilidades de Carlos Barrios.
-
-### Características del Chatbot
-
-| Característica | Descripción |
-|:--------------:|:-----------|
-| 🤖 **IA Integrada** | Conectado a OpenAI (GPT-4o-mini) para respuestas inteligentes |
-| 🔒 **Seguridad Robusta** | Rate limiting, sanitización de entrada y validación de respuestas |
-| 📝 **Historial** | Mantiene contexto de la conversación |
-| ⚡ **Quick Replies** | Respuestas rápidas predefinidas según contexto |
-| 🌐 **Modo Híbrido** | Funciona con API o respuestas locales (fallback automático) |
-| 📱 **Responsive** | Diseño adaptado para todos los dispositivos |
-| 🎨 **UI Optimizada** | Ventana más ancha (480px) y menos alta (500px) para mejor UX |
-| ✅ **Botón Cerrar** | Siempre accesible con z-index elevado |
-
-### Arquitectura de Seguridad
-
-El chatbot implementa múltiples capas de seguridad:
-
-- **Rate Limiting (Frontend):** 30 requests/minuto por usuario
-- **Validación de Entrada:** Bloquea patrones peligrosos (XSS, inyección de código)
-- **Sanitización de HTML:** Previene ataques XSS
-- **Validación de Respuestas:** Filtra contenido peligroso del backend
-- **CSP Headers:** Content Security Policy configurado en `index.html`
-
-### Configuración
-
-El chatbot se configura en [`chatbot.js`](chatbot.js:8). Para desplegarlo en producción, **debes configurar las variables de entorno**:
-
-```javascript
-const CHATBOT_CONFIG = {
-  // URL de tu backend API - Configurar como variable de entorno
-  apiEndpoint: process.env.CHATBOT_API_URL || 'TU_API_ENDPOINT_AQUI',
-  
-  // API key del cliente - Configurar como variable de entorno
-  clientApiKey: process.env.CHATBOT_API_KEY || 'TU_API_KEY_AQUI',
-  
-  // Configuración de la petición
-  apiConfig: {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  },
-  
-  // Timeout para la petición (ms)
-  timeout: 15000,
-  
-  // Modo de operación: 'api' (con backend) o 'local' (respuestas locales)
-  mode: 'auto'  // 'auto' intenta API, fallback a local si falla
-};
-```
-
-⚠️ **Importante:** Nunca expongas credenciales sensibles en el código fuente. Usa variables de entorno o archivos de configuración excluidos del control de versiones.
-
----
-
-## 📁 Estructura del Proyecto
+<div align="center">
 
 ```
-rodascaar/
-│
-├── index.html                    # Página principal del CV
-├── styles.css                    # Estilos personalizados del sitio
-├── chatbot.css                   # Estilos específicos del chatbot
-├── chatbot.js                    # Lógica del chatbot con IA integrada
-├── profile.webp                  # Imagen de perfil optimizada
-├── cv_Carlos_Barrios.pdf         # CV en formato PDF
-├── README.md                     # Documentación del proyecto
-└── .git/                         # Repositorio Git
+ ┌─────────────────────────────────────────────────────────────────────┐
+ │  ▓▓▓▓ SYSTEM//INITIALIZING.....  [████████████████████] 100%        │
+ │  ▓▓▓▓ ACCESS://GRANTED             USER_ID::49239392                │
+ │  ▓▓▓▓ ROLE://QA_AUTOMATION_AI       STATUS::ONLINE                  │
+ └─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Descripción de Archivos
+#  CARLOS_BARRIOS  //  `rodascaar`
 
-| Archivo | Descripción |
-|:-------:|:-----------|
-| `index.html` | Estructura HTML semántica del sitio |
-| `styles.css` | Hoja de estilos con variables CSS personalizables |
-| `chatbot.css` | Estilos específicos del chatbot (UI optimizada) |
-| `chatbot.js` | Lógica del chatbot con IA integrada y seguridad |
-| `profile.webp` | Imagen de perfil en formato WebP optimizado |
-| `cv_Carlos_Barrios.pdf` | Documento PDF del CV completo |
-| `README.md` | Documentación completa del proyecto |
+### QA Automation Engineer  •  AI Process Orchestrator  •  FinTech Specialist
 
----
+> *"Mi objetivo: asegurar la calidad de los productos de software que utilizan<br>
+> nuestros clientes, brindando un servicio de alta calidad y eficiencia."*
 
-## 🛠️ Tecnologías Utilizadas
+🟢 **OPERATIONAL**  `Paraguay`  `Hireable: TRUE`  `Twitter: @rodascaar`
 
-### Frontend
-
-- **HTML5** – Estructura semántica del contenido
-- **CSS3** – Estilos y diseño responsive
-- **Variables CSS** – Gestión de colores corporativos
-- **WebP** – Formato de imagen optimizado
-
-### Herramientas
-
-- **Tailwind CSS** – Framework de utilidades CSS (referencia de diseño)
-- **FontAwesome** – Iconos vectoriales (CDN)
+</div>
 
 ---
 
-## 🚀 Instalación y Despliegue
+## ╔═ SYSTEM OVERVIEW ═╗
 
-### Requisitos Previos
+<div align="center">
 
-- Un navegador web moderno (Chrome, Firefox, Safari, Edge)
-- No requiere servidor ni dependencias adicionales
+|  `ID`  |       `PARAMETER`        |                  `VALUE`                  |
+|:------:|:------------------------:|:-----------------------------------------:|
+|   01   |     MAIN_FUNCTION        | QA Engineer / Test Automation             |
+|   02   |     SUB_SPECIALTY        | REST APIs  •  FinTech  •  AI Orchestration |
+|   03   |     LANGUAGES_PROC       | Go  •  Python  •  TypeScript  •  Shell    |
+|   04   |     DEPLOYMENT_ZONE      | GitHub Pages  •  CapRover  •  Cloudflare  |
+|   05   |     CREDENTIAL_RUNTIME    | +7 años (2019→presente)                    |
+|   06   |     AUTH_PROTOCOL        | `hireable: TRUE`                           |
 
-### Instalación Local
-
-1. **Clona el repositorio:**
-
-   ```bash
-   git clone https://github.com/rodascaar/rodascaar-1.git
-   ```
-
-2. **Navega al directorio del proyecto:**
-
-   ```bash
-   cd rodascaar-1
-   ```
-
-3. **Abre el archivo `index.html` en tu navegador:**
-
-   - Doble clic en `index.html`, o
-   - Arrastra el archivo a tu navegador, o
-   - Usa un servidor local (opcional):
-
-     ```bash
-     # Python 3
-     python -m http.server 8000
-     
-     # Node.js (con npx)
-     npx serve
-     ```
-
-### Despliegue en GitHub Pages
-
-1. Sube el código a tu repositorio de GitHub
-2. Ve a **Settings** > **Pages**
-3. Selecciona la rama `main` o `master`
-4. Guarda los cambios
-5. Tu sitio estará disponible en `https://username.github.io/repository-name`
+</div>
 
 ---
 
-## 🎨 Personalización
+## ╔═ LIVE TELEMETRY ═╗
+>  Métricas en tiempo real alimentadas por GitHub Stats API para `rodascaar`
 
-### Colores Corporativos
+<div align="center">
 
-Los colores principales se definen como variables CSS en [`styles.css`](styles.css:1):
+<img src="https://github-readme-stats.vercel.app/api?username=rodascaar&show_icons=true&theme=dark&hide_border=true&bg_color=0a0a0a&title_color=0aff99&text_color=1aff66&icon_color=0aff99&hide=issues&ring_color=0aff99" width="49%"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=rodascaar&theme=dark&hide_border=true&background=0a0a0a&ring=0aff99&fire=0aff99&currStreakLabel=0aff99&sideLabels=1aff66&dates=1aff66&currStreakNum=1aff66" width="49%"/>
 
-```css
-:root {
-    --primary-blue: #0A66C2;    /* Azul corporativo */
-    --secondary-orange: #F5993D; /* Naranja de acento */
-    --text-dark: #1a1a1a;        /* Texto principal */
-    --text-light: #666666;       /* Texto secundario */
-    --bg-light: #f8f9fa;         /* Fondo claro */
-}
+<br><br>
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rodascaar&layout=compact&theme=dark&hide_border=true&bg_color=0a0a0a&title_color=0aff99&text_color=1aff66" width="60%"/>
+
+</div>
+
+---
+
+## ╔═ AUTOMATION ARSENAL ═╗
+
+<div align="center">
+
+### ⚡ CORE COMPETENCIES
+
+```
+ ┌─────────────────────────────────────────────────────────────────────┐
+ │                                                                     │
+ │   [01]  QA TESTING       ████████████████████████  98%              │
+ │         Selenium • Playwright • Cypress • Jest • PyTest              │
+ │                                                                     │
+ │   [02]  API AUTOMATION   ██████████████████████░░  95%              │
+ │         Postman • REST Assured • Karate • Insomnia • Bruno          │
+ │                                                                     │
+ │   [03]  AI ORCHESTRATION ████████████████████░░░░  90%              │
+ │         OpenAI • MCP Servers • LangChain • RAG • Vector DB          │
+ │                                                                     │
+ │   [04]  FINTECH DOMAIN   ██████████████████░░░░░░  85%              │
+ │         SIFEN • SII Paraguay • Facturación Electrónica              │
+ │                                                                     │
+ │   [05]  GO / PYTHON      ██████████████████░░░░░░  85%              │
+ │         Microservicios • CLI tools • ETL • Web Scraping             │
+ │                                                                     │
+ │   [06]  DEVOPS / CI/CD   █████████████████░░░░░░░  80%              │
+ │         Docker • CapRover • GitHub Actions • Cloudflare Pages       │
+ │                                                                     │
+ └─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Modificar Información Personal
+</div>
 
-Edita el archivo [`index.html`](index.html:1) para actualizar:
+<div align="center">
 
-- Datos de contacto (email, teléfono, LinkedIn)
-- Información de experiencia laboral
-- Lista de herramientas y tecnologías
-- Proyectos realizados
-- Sección "Sobre mí"
+<table>
+<tr>
+<td align="center"><b>🧪 TEST</b></td>
+<td align="center"><b>🔗 API</b></td>
+<td align="center"><b>🤖 AI</b></td>
+<td align="center"><b>⚙️ CODE</b></td>
+<td align="center"><b>☁️ DEPLOY</b></td>
+</tr>
+<tr>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=selenium,playwright,jest,pytest" height="30"/><br>
+<sub>Selenium<br>Playwright<br>Jest/PyTest</sub>
+</td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=postman,grafana" height="30"/><br>
+<sub>Postman<br>REST<br>Karate</sub>
+</td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=openai,python,ts" height="30"/><br>
+<sub>OpenAI<br>MCP<br>LangChain</sub>
+</td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=go,python,typescript" height="30"/><br>
+<sub>Go<br>Python<br>TypeScript</sub>
+</td>
+<td align="center">
+<img src="https://skillicons.dev/icons?i=docker,githubactions,cloudflare" height="30"/><br>
+<sub>Docker<br>CapRover<br>GH Pages</sub>
+</td>
+</tr>
+</table>
 
-### Reemplazar Imagen de Perfil
-
-1. Reemplaza el archivo `profile.webp` con tu imagen
-2. Asegúrate de que la imagen esté optimizada (formato WebP recomendado)
-3. Mantén el nombre del archivo o actualiza la referencia en `index.html`
-
----
-
-## 🔒 Seguridad
-
-Este proyecto implementa múltiples capas de seguridad para proteger contra vulnerabilidades comunes en aplicaciones web.
-
-### Medidas de Seguridad Implementadas
-
-#### Frontend (GitHub Pages)
-
-| Medida | Descripción |
-|:-------:|:-----------|
-| 🛡️ **CSP Headers** | Content Security Policy para prevenir XSS |
-| 🔒 **Rate Limiting** | 30 requests/minuto por usuario |
-| ✅ **Validación de Entrada** | Bloquea patrones peligrosos |
-| 🧹 **Sanitización de HTML** | Previene inyección de código |
-| 🔍 **Validación de Respuestas** | Filtra contenido del backend |
-
-#### Backend (CapRover)
-
-| Medida | Descripción |
-|:-------:|:-----------|
-| 🚦 **Rate Limiting** | Por IP y por tokens |
-| 🛡️ **Input Sanitizer** | Detección de inyección de prompts |
-| 🔓 **Jailbreak Detector** | Previene ataques de jailbreaking |
-| 🔐 **System Prompt Protection** | Protege el prompt del sistema |
-
-### Buenas Prácticas
-
-1. **Nunca exponer API keys sensibles** en el frontend
-2. **Usar HTTPS** en todas las conexiones
-3. **Implementar rate limiting** en múltiples capas
-4. **Validar y sanitizar** todas las entradas
-5. **Configurar CSP** correctamente
-6. **Monitorear logs** de seguridad regularmente
-7. **Rotar credenciales** periódicamente
+</div>
 
 ---
 
-## 📬 Contacto
+## ╔═ MISSION LOG ═╗
+>  Repositorios activos y resultados de operaciones de automatización
 
-**Carlos Barrios**  
-Analista QA – Automatización de Pruebas
+<div align="center">
 
-| Canal | Enlace |
-|:-----:|:-------|
-| 📧 Email | [carlosbarriosr@proton.me](mailto:carlosbarriosr@proton.me) |
-| 🔗 LinkedIn | [linkedin.com/in/rodascaar](https://www.linkedin.com/in/rodascaar/) |
-| 💬 WhatsApp | [Contactar por WhatsApp](https://wa.me/595XXXXXXXXX) |
+### 🛰️ ACTIVE REPOSITORIES (14)
+
+```
+ ┌──────────────────────────┬──────────────┬────────────┬────────────────────────┐
+ │  REPO_ID                 │  STACK       │  STATUS    │  MISSION_TYPE          │
+ ├──────────────────────────┼──────────────┼────────────┼────────────────────────┤
+ │  SEO-LLM                 │  HTML        │  ●LIVE     │  AI Content Engine     │
+ │  synkro                  │  Go          │  ●LIVE     │  Graph Memory System   │
+ │  sifen-go-py         ★1  │  Go          │  ●LIVE     │  FinTech (SIFEN PY)    │
+ │  profitpilot-mcp-server  │  TypeScript  │  ●LIVE     │  AI Agent Server       │
+ │  quorum-mcp-server       │  TypeScript  │  ●LIVE     │  MCP Server / AI       │
+ │  rodascaar               │  CSS         │  ●LIVE     │  Profile / CV Site     │
+ │  lavadero-express        │  Astro       │  ●LIVE     │  Web App / Landing     │
+ │  TOON-Converter          │  Go          │  ●LIVE     │  CLI Media Converter   │
+ │  cli-converter           │  Go          │  ●LIVE     │  CLI Tool              │
+ │  contractis              │  Go          │  ●LIVE     │  Legal Tech            │
+ │  generador-landing       │  —           │  ●LIVE     │  Funnel Generator      │
+ │  mcp_oraculo_tiempo      │  Shell       │  ●LIVE     │  MCP AI Agent         │
+ │  time_lapse              │  Python      │  ●LIVE     │  Video / ETL           │
+ │  roda                    │  —           │  ●LEGACY   │  Initial Web CV        │
+ └──────────────────────────┴──────────────┴────────────┴────────────────────────┘
+  Legend: ●LIVE = en desarrollo/actualizado   ●LEGACY = histórico
+```
+
+</div>
+
+### 🤖 SPOTLIGHT: AI Process Orchestration
+
+<div align="center">
+
+|  Proyecto  |  Descripción  |  Tech  |
+|:----------:|:-------------|:------:|
+| **profitpilot-mcp-server** | Servidor MCP para orquestar agentes de IA en pipelines de análisis financiero | TypeScript |
+| **quorum-mcp-server** | MCP Server con licencia GPLv3 para integración de modelos en curación de contenido | TypeScript |
+| **mcp_oraculo_tiempo** | Agente de IA tipo MCP en Shell para oráculos de tiempo/series temporales | Shell |
+| **synkro** | Memoria de grafos con relaciones para agentes IA (extiende memoria de OpenCode) | Go |
+
+```
+ AI_ORCHESTRATION_FLOW:
+   user_prompt ─► MCP_server ─► [LLM] ─► tool_call ─► response_curation
+        │                                          ▲
+        └────── memory_graph (synkro) ─────────────┘
+```
+
+</div>
 
 ---
 
-## 📄 Licencia
+## ╔═ CONTACT NODE ═╗
 
-Este proyecto está bajo la **Licencia MIT**.
+<div align="center">
+
+```
+ ┌─────────────────────────────────────────────────────────────────────┐
+ │                                                                     │
+ │   EMAIL      ::  carlosbarriosr@proton.me                            │
+ │   LINKEDIN   ::  linkedin.com/in/rodascaar                           │
+ │   TWITTER    ::  @rodascaar                                         │
+ │   WHATSAPP   ::  (+595) •  request_endpoint                         │
+ │   BLOG       ::  carlosvende.site.revelarte.studio                   │
+ │   ZONE       ::  Paraguay                                            │
+ │   AVAIL      ::  hireable = TRUE                                    │
+ │                                                                     │
+ └─────────────────────────────────────────────────────────────────────┘
+```
+
+<a href="mailto:carlosbarriosr@proton.me"><img src="https://img.shields.io/badge/EMAIL-carlosbarriosr@proton.me-0aff99?style=for-the-badge&logo=protonmail&logoColor=white&labelColor=0a0a0a"/></a>
+<a href="https://www.linkedin.com/in/rodascaar/"><img src="https://img.shields.io/badge/LINKEDIN-rodascaar-0aff99?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0a0a0a"/></a>
+<a href="https://twitter.com/rodascaar"><img src="https://img.shields.io/badge/TWITTER-@rodascaar-0aff99?style=for-the-badge&logo=x&logoColor=white&labelColor=0a0a0a"/></a>
+<a href="https://github.com/rodascaar"><img src="https://img.shields.io/badge/GITHUB-rodascaar-0aff99?style=for-the-badge&logo=github&logoColor=white&labelColor=0a0a0a"/></a>
+
+</div>
+
+---
+
+## ╔═ CV WEB MODULE ═╗
+
+> Sitio web del CV con chatbot IA integrado (GPT-4o-mini) para consultas
+> sobre el perfil. Full responsive  •  WebP optimized  •  CSP hardening.
+
+<div align="center">
+
+|  Módulo  |  Tecnología  |  Estado  |
+|:--------:|:------------|:--------:|
+| Frontend | HTML5 + CSS3 (variables) |  ●  |
+| Chatbot IA | OpenAI GPT-4o-mini + fallback local |  ●  |
+| Seguridad | Rate limit 30/min + sanitización + jailbreak detector |  ●  |
+| Imagen perfil | WebP optimizado |  ●  |
+| Deploy | GitHub Pages + CapRover (backend) |  ●  |
+| PDF CV | `cv_Carlos_Barrios.pdf` deanloadable |  ●  |
+
+</div>
+
+### 🔐 Arquitectura de seguridad multicapa
+
+```
+ CLIENT (GitHub Pages)              BACKEND (CapRover)
+ ┌──────────────────────┐          ┌──────────────────────┐
+ │  CSP Headers         │          │  Rate limit /IP      │
+ │  Rate limit /user   │  HTTPS   │  Input sanitizer     │
+ │  XSS sanitization    │ ──────►  │  Jailbreak detector  │
+ │  Response validation │          │  System prompt lock  │
+ └──────────────────────┘          └──────────────────────┘
+```
+
+---
+
+<div align="center">
+
+```
+ ════════════════════════════════════════════════════════════════════════
+  >> CONEXIÓN TERMINADA: signal_lost_or_page_end
+  >> LAST_PING: ${date}
+  >> MODULE_EOF  ░  Gracias por visitar  ░  Keep automating — keep shipping
+ ════════════════════════════════════════════════════════════════════════
+```
+
+### `// EOF - SYSTEM_POWERED_DOWN //`
+
+</div>
+
+---
+
+<details>
+<summary>📜  Licencia MIT (expandir)</summary>
 
 ```
 MIT License
@@ -304,29 +268,13 @@ Copyright (c) 2026 Carlos Barrios
 
 Se concede permiso, de forma gratuita, a cualquier persona que obtenga una copia
 de este software y archivos de documentación asociados (el "Software"), para
-tratar en el Software sin restricción, incluyendo sin limitación los derechos
-de uso, copia, modificación, fusión, publicación, distribución, sublicencia y/o
-venta de copias del Software, y para permitir a las personas a quienes se les
-proporcione el Software a hacerlo, sujeto a las siguientes condiciones:
+tratar en el Software sin restricción...
 
-El aviso de copyright anterior y este aviso de permiso se incluirán en todas
-las copias o partes sustanciales del Software.
-
-EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
-IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIABILIDAD,
-IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS
-AUTORES O TITULARES DEL COPYRIGHT SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN,
-DAÑOS U OTRA RESPONSABILIDAD, YA SEA EN UNA ACCIÓN DE CONTRATO, AGRAVIO O DE
-OTRO MODO, QUE SURJA DE, FUERA DE O EN CONEXIÓN CON EL SOFTWARE O EL USO U
-OTRO TRATO EN EL SOFTWARE.
+EL SOFTWARE SE PROPORCIONA "TAL CUAL", SIN GARANTÍA DE NINGÚN TIPO.
 ```
 
----
+</details>
 
 <div align="center">
-
-**Hecho con ❤️ por [Carlos Barrios](https://www.linkedin.com/in/rodascaar/)**
-
-[⬆ Volver al inicio](#-cv-profesional--carlos-barrios)
-
+<sub>Hecho con ❤️ & ASCII por <a href="https://github.com/rodascaar">rodascaar</a> • Renderizado en GitHub-flavored Markdown</sub>
 </div>
