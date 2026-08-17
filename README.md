@@ -56,19 +56,6 @@ Aseguro la calidad de productos de software mediante automatización de pruebas,
 | **[profitpilot-mcp-server](https://github.com/rodascaar/profitpilot-mcp-server)** | Servidor MCP para orquestar agentes en pipelines financieros |
 | **[quorum-mcp-server](https://github.com/rodascaar/quorum-mcp-server)** | Servidor MCP para curación de contenido con modelos de IA |
 
-<br>
-
-## Actividad
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=rodascaar&show_icons=true&hide_border=true&hide_title=true&bg_color=ffffff&title_color=000000&text_color=333333&icon_color=000000&hide=issues&border_radius=8" width="48%"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=rodascaar&hide_border=true&background=ffffff&ring=000000&fire=000000&currStreakLabel=000000&sideLabels=333333&dates=333333&currStreakNum=333333&border_radius=8" width="48%"/>
-
-</div>
-
-<br>
-
 ---
 
 <div align="center">
