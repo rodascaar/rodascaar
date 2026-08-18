@@ -31,9 +31,11 @@
 }
 
 html {
+  font-size: 16px;
   overflow-x: hidden;
   width: 100%;
   min-width: 320px;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -42,7 +44,7 @@ body {
   color: var(--off-white);
   overflow-x: hidden;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   min-width: 320px;
   margin: 0;
   padding: 0;
@@ -106,16 +108,16 @@ body {
 /* Hero Section - QA Universe */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  padding-top: 6rem;
+  padding-top: 4.5rem;
   overflow: hidden;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -143,15 +145,15 @@ body {
   margin: 0 auto;
 }
 
-/* Efecto Glitch en el nombre */
+/* Efecto Glitch sutil en el nombre */
 .glitch-text {
   position: relative;
-  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
   font-weight: 800;
   color: var(--off-white);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  animation: glitch-skew 3s infinite linear alternate-reverse;
+  letter-spacing: 0.04em;
+  animation: glitch-skew 6s infinite linear alternate-reverse;
 }
 
 .glitch-text::before,
@@ -162,59 +164,45 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .glitch-text::before {
-  left: 2px;
-  text-shadow: -2px 0 var(--electric-blue);
-  clip: rect(24px, 550px, 90px, 0);
-  animation: glitch-anim 2s infinite linear alternate-reverse;
+  left: 1px;
+  text-shadow: -1px 0 var(--electric-blue);
+  clip: rect(20px, 9999px, 46px, 0);
+  animation: glitch-anim 3.5s infinite linear alternate-reverse;
 }
 
 .glitch-text::after {
-  left: -2px;
-  text-shadow: -2px 0 var(--cyber-teal);
-  clip: rect(85px, 550px, 140px, 0);
-  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+  left: -1px;
+  text-shadow: 1px 0 var(--cyber-teal);
+  clip: rect(58px, 9999px, 84px, 0);
+  animation: glitch-anim 4.5s infinite linear alternate-reverse;
 }
 
 @keyframes glitch-anim {
-  0% { clip: rect(14px, 9999px, 127px, 0); }
-  5% { clip: rect(66px, 9999px, 86px, 0); }
-  10% { clip: rect(4px, 9999px, 143px, 0); }
-  15% { clip: rect(98px, 9999px, 58px, 0); }
-  20% { clip: rect(31px, 9999px, 117px, 0); }
-  25% { clip: rect(79px, 9999px, 92px, 0); }
-  30% { clip: rect(18px, 9999px, 136px, 0); }
-  35% { clip: rect(105px, 9999px, 44px, 0); }
-  40% { clip: rect(52px, 9999px, 119px, 0); }
-  45% { clip: rect(88px, 9999px, 73px, 0); }
-  50% { clip: rect(25px, 9999px, 151px, 0); }
-  55% { clip: rect(112px, 9999px, 39px, 0); }
-  60% { clip: rect(61px, 9999px, 124px, 0); }
-  65% { clip: rect(9px, 9999px, 147px, 0); }
-  70% { clip: rect(95px, 9999px, 67px, 0); }
-  75% { clip: rect(38px, 9999px, 131px, 0); }
-  80% { clip: rect(117px, 9999px, 54px, 0); }
-  85% { clip: rect(72px, 9999px, 139px, 0); }
-  90% { clip: rect(15px, 9999px, 102px, 0); }
-  95% { clip: rect(108px, 9999px, 48px, 0); }
-  100% { clip: rect(83px, 9999px, 156px, 0); }
+  0% { clip: rect(16px, 9999px, 42px, 0); }
+  25% { clip: rect(64px, 9999px, 88px, 0); }
+  50% { clip: rect(28px, 9999px, 52px, 0); }
+  75% { clip: rect(72px, 9999px, 96px, 0); }
+  100% { clip: rect(40px, 9999px, 68px, 0); }
 }
 
 @keyframes glitch-skew {
   0% { transform: skew(0deg); }
-  20% { transform: skew(-1deg); }
-  40% { transform: skew(1deg); }
+  20% { transform: skew(-0.5deg); }
+  40% { transform: skew(0.5deg); }
   60% { transform: skew(0deg); }
-  80% { transform: skew(-0.5deg); }
+  80% { transform: skew(-0.25deg); }
   100% { transform: skew(0deg); }
 }
 
 /* Foto de perfil con efecto 3D */
 .profile-container {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   perspective: 1000px;
 }
 
@@ -254,6 +242,7 @@ body {
   justify-content: center;
   font-size: 1.2rem;
   color: var(--cyber-teal);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   animation: orbit 20s linear infinite;
 }
@@ -272,7 +261,7 @@ body {
 .hero-subtitle {
   font-size: clamp(1rem, 3vw, 1.5rem);
   color: var(--cyber-teal);
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
   opacity: 0;
   animation: fadeUp 1s ease 0.5s forwards;
 }
@@ -291,9 +280,9 @@ body {
 /* Botones del Hero */
 .hero-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
   opacity: 0;
   animation: fadeUp 1s ease 0.8s forwards;
 }
@@ -311,6 +300,22 @@ body {
   gap: 0.5rem;
 }
 
+.btn-lg {
+  padding: 1.25rem 3rem;
+  font-size: 1.1rem;
+}
+
+.btn-sm {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--electric-blue), var(--dark-blue));
   color: white;
@@ -326,6 +331,7 @@ body {
   background: var(--glass-bg);
   color: var(--off-white);
   border: 1px solid var(--glass-border);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -371,6 +377,7 @@ body {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 50px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   margin: 0;
 }
@@ -420,6 +427,7 @@ body {
   align-items: center;
   gap: 5px;
   padding: 0;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -446,7 +454,7 @@ body {
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.5rem;
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 2s infinite;
@@ -474,7 +482,7 @@ body {
   padding: 4rem 5%;
   z-index: 10;
   width: 100%;
-  max-width: 100vw;
+  max-width: 100%;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -495,6 +503,7 @@ body {
   border: 1px solid var(--glass-border);
   border-radius: 24px;
   padding: 20px;
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
@@ -978,7 +987,7 @@ footer p {
 /* Móviles pequeños (< 480px) */
 @media (max-width: 480px) {
   h1, .glitch-text {
-    font-size: clamp(1.1rem, 14vw, 1.8rem);
+    font-size: clamp(1.3rem, 6.5vw, 1.8rem);
     margin-bottom: 0.5rem;
     line-height: 1.2;
   }
@@ -1033,17 +1042,27 @@ footer p {
   }
   
   .hero-buttons {
-    gap: 0.75rem;
+    gap: 1rem;
     padding: 0;
-    flex-direction: column;
     width: 100%;
   }
   
-  .btn-glow {
+  .btn-lg {
     padding: 0.875rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     width: 100%;
     justify-content: center;
+  }
+  
+  .social-buttons {
+    width: 100%;
+    gap: 0.75rem;
+  }
+  
+  .social-buttons .btn-sm {
+    flex: 1;
+    justify-content: center;
+    padding: 0.65rem 1rem;
   }
   
   .orbiting-element {
@@ -1098,6 +1117,7 @@ footer p {
   .hero-section {
     padding: 1.5rem;
     padding-top: 4.5rem;
+    min-height: 90vh;
   }
   
   .hero-content {
@@ -1122,7 +1142,7 @@ footer p {
   }
   
   .glitch-text {
-    font-size: clamp(2rem, 6vw, 3rem);
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
   }
   
   .hero-subtitle {
@@ -1246,6 +1266,7 @@ footer p {
     border-radius: 0;
     border: none;
     background: rgba(10, 10, 15, 0.98);
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     transition: left 0.3s ease;
   }
@@ -1260,7 +1281,7 @@ footer p {
   }
   
   h1, .glitch-text {
-    font-size: clamp(1.3rem, 12vw, 2rem);
+    font-size: clamp(1.4rem, 5.5vw, 2.2rem);
   }
   
   h2 {
