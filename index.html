@@ -62,15 +62,17 @@
 
             <!-- Botones -->
             <div class="hero-buttons">
-                <a href="#contact" class="btn-glow btn-primary">
+                <a href="#contact" class="btn-glow btn-primary btn-lg">
                     <i class="fas fa-envelope"></i> Contactar
                 </a>
-                <a href="https://www.linkedin.com/in/rodascaar/" target="_blank" rel="noopener" class="btn-glow btn-secondary">
-                    <i class="fab fa-linkedin-in"></i> LinkedIn
-                </a>
-                <a href="https://github.com/rodascaar" target="_blank" rel="noopener" class="btn-glow btn-secondary">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+                <div class="social-buttons">
+                    <a href="https://www.linkedin.com/in/rodascaar/" target="_blank" rel="noopener" class="btn-glow btn-secondary btn-sm">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/rodascaar" target="_blank" rel="noopener" class="btn-glow btn-secondary btn-sm">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -325,13 +327,13 @@
         // ============================================
         const cursor = document.getElementById('customCursor');
         const cursorTrails = [];
-        const trailCount = 8;
+        const trailCount = 3;
 
         // Crear trails
         for (let i = 0; i < trailCount; i++) {
             const trail = document.createElement('div');
             trail.className = 'cursor-trail';
-            trail.style.opacity = (1 - i / trailCount) * 0.5;
+            trail.style.opacity = (1 - i / trailCount) * 0.3;
             document.body.appendChild(trail);
             cursorTrails.push({ el: trail, x: 0, y: 0 });
         }
@@ -427,7 +429,7 @@
         }
 
         // Crear partículas
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 40; i++) {
             particles.push(new Particle());
         }
 

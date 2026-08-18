@@ -45,7 +45,7 @@
   position: fixed;
   bottom: 90px;
   right: 1rem;
-  width: calc(100vw - 2rem);
+  width: calc(100% - 2rem);
   max-width: 420px;
   max-height: 55vh;
   background: linear-gradient(180deg, rgba(10, 10, 20, 0.95), rgba(20, 20, 30, 0.95));
@@ -76,6 +76,7 @@
   align-items: center;
   gap: 1rem;
   border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -725,7 +726,7 @@
   }
   
   .chatbot-window {
-    width: calc(100vw - 3rem);
+    width: calc(100% - 3rem);
     right: 1.5rem;
     bottom: 70px;
     max-height: 55vh;
@@ -756,7 +757,7 @@
 /* Móviles (< 767px) - ajuste específico para ventana */
 @media (max-width: 767px) {
   .chatbot-window {
-    width: calc(100vw - 2rem);
+    width: calc(100% - 2rem);
     right: 1rem;
     bottom: 80px;
     max-height: 70vh;
