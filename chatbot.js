@@ -7,7 +7,7 @@
 // ============================================
 const CHATBOT_CONFIG = {
   // URL de tu backend API - Backend desplegado en CapRover
-  apiEndpoint: 'https://carlos-bot-api.site.revelarte.studio/api/chat',
+  apiEndpoint: 'https://carlos-bot-api.site.agentyx.site/api/chat',
   
   // API key del cliente (configurada en el backend)
   clientApiKey: '25d0a2a8bbe1a1a19873791305088f6a',
