@@ -4,17 +4,19 @@
 
 # Carlos Barrios
 
-### QA Automation Engineer
+### QA en banca · APIs, datos y regresión automatizada
 
-Construyo sistemas que se aseguran de que el software funcione.<br>
-Automatización, APIs y flujos de IA — con enfoque en calidad real, no en checklists.
+Trabajo en tecnología desde 2015 y en QA bancaria desde 2022
+(Banco Solar, Financiera Solar). Pruebo APIs, valido el dato
+en la base y dejo la regresión corriendo en CI.
 
 <br>
 
-[![Email](https://img.shields.io/badge/-carlosbarriosr@proton.me-000000?style=flat-square&logo=protonmail&logoColor=white)](mailto:carlosbarriosr@proton.me)
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-000000?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodascaar/)
-[![GitHub](https://img.shields.io/badge/-GitHub-000000?style=flat-square&logo=github&logoColor=white)](https://github.com/rodascaar)
-[![Twitter](https://img.shields.io/badge/-@rodascaar-000000?style=flat-square&logo=x&logoColor=white)](https://twitter.com/rodascaar)
+[![Email](https://img.shields.io/badge/-carlosbarriosr@proton.me-282B4A?style=flat-square&logo=protonmail&logoColor=EEEBDA)](mailto:carlosbarriosr@proton.me)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-282B4A?style=flat-square&logo=linkedin&logoColor=EEEBDA)](https://www.linkedin.com/in/rodascaar/)
+[![GitHub](https://img.shields.io/badge/-GitHub-282B4A?style=flat-square&logo=github&logoColor=EEEBDA)](https://github.com/rodascaar)
+[![Blog](https://img.shields.io/badge/-Blog-282B4A?style=flat-square&logo=rss&logoColor=EEEBDA)](https://carlosbarrios.site.agentyx.site/)
+[![CV](https://img.shields.io/badge/-CV-282B4A?style=flat-square&logo=adobeacrobatreader&logoColor=EEEBDA)](https://rodascaar.github.io/rodascaar/cv_Carlos_Barrios.pdf)
 
 <br>
 
@@ -26,7 +28,10 @@ Automatización, APIs y flujos de IA — con enfoque en calidad real, no en chec
 
 ## Qué hago
 
-Aseguro la calidad de productos de software mediante automatización de pruebas, integración de APIs y orquestación de agentes de IA. Siete años trabajando en fintech, testing y herramientas para desarrolladores — siempre buscando el camino más simple hacia el resultado correcto.
+Pruebo core bancario en homologación: flujos de pago, transferencias,
+módulos de caja, ahorros, SIPAP y SPI. Verifico en Oracle y PostgreSQL,
+registro todo en Jira + QMetry y miro Grafana y logs para que cada bug
+llegue reproducible. Cuando algo se repite, lo automatizo.
 
 <br>
 
@@ -40,21 +45,22 @@ Aseguro la calidad de productos de software mediante automatización de pruebas,
 
 <br>
 
-**Testing & QA** — Selenium, Playwright, Cypress, Jest, PyTest
-**APIs** — Postman, REST Assured, Karate
-**IA & Orquestación** — OpenAI, MCP Servers, LangChain, RAG
-**Infraestructura** — Docker, CapRover, GitHub Actions, Cloudflare
+**Probar** — Postman, Selenium, Cypress, Pytest, Jest, QMetry
+**Dato y señales** — Oracle, PostgreSQL, Grafana
+**Orden** — Jira, QMetry, Scrum, Git, GitHub Actions, Docker
+**Código e IA cuando suman** — Python, TypeScript, Go, modelos locales, agentes
 
 <br>
 
-## Proyectos destacados
+## Proyectos
 
 | | |
 |---|---|
-| **[sifen-go-py](https://github.com/rodascaar/sifen-go-py)** | Integración con el sistema de facturación electrónica SIFEN (Paraguay) |
+| **[sifen-go-py](https://github.com/rodascaar/sifen-go-py)** | Cliente Go para facturación electrónica SIFEN (Paraguay), con pruebas |
 | **[synkro](https://github.com/rodascaar/synkro)** | Memoria de grafos para agentes de IA, en Go |
 | **[profitpilot-mcp-server](https://github.com/rodascaar/profitpilot-mcp-server)** | Servidor MCP para orquestar agentes en pipelines financieros |
 | **[quorum-mcp-server](https://github.com/rodascaar/quorum-mcp-server)** | Servidor MCP para curación de contenido con modelos de IA |
+| **[Blog](https://carlosbarrios.site.agentyx.site/)** | Lo que aprendo, escrito: QA, IA local y código que no se rompe |
 
 ---
 
@@ -62,7 +68,8 @@ Aseguro la calidad de productos de software mediante automatización de pruebas,
 
 <br>
 
-Disponible para nuevos proyectos · Paraguay
+Estoy en Paraguay y trabajo remoto para Latam ·
+carlosbarriosr@proton.me
 
 <sub>© 2026 Carlos Barrios</sub>
 

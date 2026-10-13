@@ -34,7 +34,7 @@ const LOCAL_RESPONSES = {
   'bienvenida': {
     message: `¡Hola! 👋 Soy el <strong>QA Assistant</strong> de Carlos Barrios.
 
-Tengo <strong>7+ años de experiencia</strong> en automatización de pruebas y testing de APIs.
+Trabaja en tecnología desde 2015 y en QA bancaria desde 2022 (Banco Solar, Financiera Solar).
 
 ¿Qué te interesa saber?`,
     quickReplies: ['🧪 Automatización', '🔌 APIs', '🛠️ Herramientas', '📁 Proyectos', '💼 Experiencia']
@@ -53,7 +53,7 @@ Tengo <strong>7+ años de experiencia</strong> en automatización de pruebas y t
    • Postman (principal)
    • Integraciones REST completas
 
-💡 <strong>Impacto real:</strong> Ha reducido tiempos de pruebas regresivas hasta en un <span class="highlight">40%</span> en proyectos bancarios.
+💡 <strong>Cómo trabaja:</strong> prueba la API, verifica el dato en la base y deja la regresión corriendo en CI, con todo trazado en Jira.
 
 ¿Quieres ver algún <a href="#projects" class="message-link">proyecto específico</a>?`,
     quickReplies: ['📁 Ver Proyectos', '🔌 APIs', '💼 Experiencia']
@@ -134,17 +134,17 @@ Tengo <strong>7+ años de experiencia</strong> en automatización de pruebas y t
   },
   
   'experiencia': {
-    message: `La experiencia más destacada de Carlos fue en <strong>ITAE (2022-2025)</strong>:
+    message: `La experiencia de Carlos en banca:
 
-🏦 <strong>Analista QA</strong>
-   • Diseño y ejecución de pruebas funcionales y de regresión
-   • Consultas avanzadas en Oracle y PostgreSQL
-   • Pruebas de APIs con Postman
-   • Monitoreo con Grafana y revisión de logs
-   • Gestión de bugs y test cases en Jira + QMetry
-   • Metodología de trabajo: Scrum
+🏦 <strong>ITAE / Banco Solar (2024–2025) — Analista QA</strong>
+   • Pruebas funcionales de core bancario en homologación
+   • Módulos de Caja, Cambios, Ahorros, SIPAP y SPI
+   • Dos implementaciones del sistema SPI
+   • Pruebas de APIs con Postman y monitoreo con Grafana
 
-💡 <strong>Impacto:</strong> Aportó valor en todo el ciclo de desarrollo, desde la planificación hasta la entrega, asegurando calidad y trazabilidad.
+🏦 <strong>IT Alianza / Financiera Solar (2022–2024) — Analista QA Tester</strong>
+   • Pruebas de sistemas financieros, Oracle Forms y Reports
+   • Casos y defectos en Jira + QMetry, en Scrum
 
 ¿Te interesa saber sobre sus <a href="#skills" class="message-link">herramientas</a>?`,
     quickReplies: ['🛠️ Herramientas', '🧪 Automatización', '📁 Proyectos']
@@ -236,6 +236,10 @@ class QAAssistant {
     const trigger = document.createElement('div');
     trigger.className = 'chatbot-trigger';
     trigger.id = 'bot-launcher'; // ID específico para manipulación independiente
+    trigger.setAttribute('role', 'button');
+    trigger.setAttribute('tabindex', '0');
+    trigger.setAttribute('aria-label', 'Abrir asistente QA');
+    trigger.dataset.label = 'Pregúntame';
     trigger.innerHTML = '<i class="fas fa-robot"></i>';
     document.body.appendChild(trigger);
 
@@ -248,25 +252,25 @@ class QAAssistant {
         <div class="robot-avatar">
           <svg class="robot-svg" viewBox="0 0 50 50">
             <!-- Antena -->
-            <line class="robot-antenna" x1="25" y1="8" x2="25" y2="2" stroke="#14b8a6" stroke-width="2"/>
-            <circle class="robot-antenna" cx="25" cy="2" r="2" fill="#14b8a6"/>
+            <line class="robot-antenna" x1="25" y1="8" x2="25" y2="2" stroke="#EEEBDA" stroke-width="2"/>
+            <circle class="robot-antenna" cx="25" cy="2" r="2" fill="#EEEBDA"/>
             
             <!-- Cabeza -->
             <g class="robot-head">
-              <rect x="10" y="10" width="30" height="25" rx="5" fill="none" stroke="#3b82f6" stroke-width="2"/>
+              <rect x="10" y="10" width="30" height="25" rx="5" fill="none" stroke="#9aa0d2" stroke-width="2"/>
               
               <!-- Ojos -->
-              <circle class="robot-eye" cx="18" cy="20" r="4" fill="#3b82f6"/>
-              <circle class="robot-eye" cx="32" cy="20" r="4" fill="#3b82f6"/>
-              <circle cx="19" cy="19" r="1.5" fill="white"/>
-              <circle cx="33" cy="19" r="1.5" fill="white"/>
+              <circle class="robot-eye" cx="18" cy="20" r="4" fill="#EEEBDA"/>
+              <circle class="robot-eye" cx="32" cy="20" r="4" fill="#EEEBDA"/>
+              <circle cx="19" cy="19" r="1.5" fill="#282B4A"/>
+              <circle cx="33" cy="19" r="1.5" fill="#282B4A"/>
               
               <!-- Boca -->
-              <path class="robot-mouth" d="M 18 32 Q 25 36 32 32" fill="none" stroke="#14b8a6" stroke-width="2"/>
+              <path class="robot-mouth" d="M 18 32 Q 25 36 32 32" fill="none" stroke="#EEEBDA" stroke-width="2"/>
             </g>
             
             <!-- Cuerpo -->
-            <rect x="15" y="36" width="20" height="12" rx="3" fill="none" stroke="#3b82f6" stroke-width="2"/>
+            <rect x="15" y="36" width="20" height="12" rx="3" fill="none" stroke="#9aa0d2" stroke-width="2"/>
           </svg>
         </div>
         <div class="chatbot-info">
@@ -305,8 +309,15 @@ class QAAssistant {
 
   // Adjuntar event listeners
   attachEventListeners() {
-    // Toggle chatbot
-    document.getElementById('bot-launcher').addEventListener('click', () => this.toggle());
+    // Toggle chatbot (click + teclado, el trigger es un div)
+    const launcher = document.getElementById('bot-launcher');
+    launcher.addEventListener('click', () => this.toggle());
+    launcher.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.toggle();
+      }
+    });
     document.getElementById('chatbotClose').addEventListener('click', () => this.close());
 
     // Enviar mensaje
