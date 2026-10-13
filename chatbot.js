@@ -9,8 +9,11 @@ const CHATBOT_CONFIG = {
   // URL de tu backend API - Backend desplegado en CapRover
   apiEndpoint: 'https://carlos-bot-api.site.agentyx.site/api/chat',
   
-  // API key del cliente (configurada en el backend)
-  clientApiKey: '***REMOVED***',
+  // API key del cliente (identificador publico, NO secreto).
+  // En el repo solo vive el placeholder: el deploy de GitHub Actions
+  // lo reemplaza por el Secret CHATBOT_API_KEY. Sin Secret, el chat
+  // usa las respuestas locales (modo auto).
+  clientApiKey: '__CHATBOT_API_KEY__',
   
   // Configuración de la petición
   apiConfig: {

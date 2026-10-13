@@ -1,0 +1,72 @@
+# Despliegue a GitHub Pages con inyeccion de la key del chatbot.
+#
+# La key es un identificador PUBLICO (viaja en el JS del navegador igual),
+# pero no debe vivir en el historial de git. El repo solo contiene el
+# placeholder __CHATBOT_API_KEY__ y este workflow lo reemplaza por el
+# Secret CHATBOT_API_KEY al publicar. Sin Secret, el deploy falla a
+# proposito para no publicar un chat roto.
+#
+# Requiere (una sola vez, en GitHub):
+#   1. Settings > Secrets and variables > Actions > New repository secret
+#      Name: CHATBOT_API_KEY, Value: <key generada en el backend>
+#   2. Settings > Pages > Build and deployment > Source: GitHub Actions
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inyectar CHATBOT_API_KEY
+        env:
+          CHATBOT_API_KEY: ${{ secrets.CHATBOT_API_KEY }}
+        run: |
+          python3 -c "
+          import os, pathlib, sys
+          key = os.environ.get('CHATBOT_API_KEY', '')
+          if not key:
+              print('::error::Falta el Secret CHATBOT_API_KEY (Settings > Secrets and variables > Actions).')
+              sys.exit(1)
+          p = pathlib.Path('chatbot.js')
+          s = p.read_text()
+          assert '__CHATBOT_API_KEY__' in s, 'placeholder no encontrado en chatbot.js'
+          p.write_text(s.replace('__CHATBOT_API_KEY__', key))
+          print('key inyectada en chatbot.js')
+          "
+          if grep -q "__CHATBOT_API_KEY__" chatbot.js; then
+            echo "::error::El placeholder no fue reemplazado."
+            exit 1
+          fi
+          echo "placeholder reemplazado OK"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
